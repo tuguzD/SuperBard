@@ -1,28 +1,32 @@
 using System;
+using System.Globalization;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
 
+    [Header("Game score display")]
     [Tooltip("Text displaying game total score on the screen")]
-    public TMPro.TextMeshPro totalScoreText;
+    public TMPro.TextMeshProUGUI totalScore;
     [Tooltip("Text displaying current combo score on the screen")]
-    public TMPro.TextMeshPro comboScoreText;
+    public TMPro.TextMeshProUGUI comboScore;
 
     [Header("Score settings")] 
     [Tooltip("Enlarges the score by 1 when combo fully divides by this number")]
-    public const int ScoreEnlarger = 10;
+    private const int ScoreEnlarger = 10;
     [Tooltip("Score that keeps track of an overall progress of a player")]
     private static float _totalScore;
     [Tooltip("Score that keeps track of consecutive successful hits of a player")]
     private static float _comboScore;
 
-    [Header("Sound Effects")] 
-    [Tooltip("Source of sound effect on successfully hitting the note")]
-    public AudioSource hitSfx;
-    [Tooltip("Source of sound effect on NOT hitting any note")]
-    public AudioSource missSfx;
+    [Header("Sound Effects")]
+    [Tooltip("Source of sound effect on hitting the note too early, resulting in score penalty")]
+    public AudioSource punishingSound;
+    [Tooltip("Source of sound effect on successfully hitting the note, adding score points")]
+    public AudioSource successHitSound;
+    [Tooltip("Source of sound effect on skipping the note completely, canceling current combo")]
+    public AudioSource missingSound;
 
     private void Start()
     {
@@ -33,33 +37,33 @@ public class ScoreManager : MonoBehaviour
 
     public static void Hit()
     {
-        _totalScore += 1;
         if (!_comboScore.Equals(0.0f) && ((int)_comboScore / ScoreEnlarger) != 0)
         {
             _totalScore += _comboScore / ScoreEnlarger;
-            _totalScore = (float)Math.Ceiling(_totalScore);
+            _totalScore = (float)Math.Floor(_totalScore);
         }
-
+        _totalScore += 1;
         _comboScore += 1;
 
-        // Instance.hitSfx.Play();
+        // Instance.successHitSound.Play();
     }
 
     public static void Miss()
     {
         Punish();
         _comboScore = 0;
-        // Instance.missSfx.Play();
+        // Instance.missingSound.Play();
     }
 
     public static void Punish()
     {
         if (_totalScore > 0) _totalScore -= 0.5f;
+        // Instance.punishingSound.Play();
     }
 
     private void Update()
     {
-        comboScoreText.text = _comboScore.ToString();
-        totalScoreText.text = _totalScore.ToString();
+        comboScore.text = _comboScore.ToString(CultureInfo.InvariantCulture);
+        totalScore.text = _totalScore.ToString(CultureInfo.InvariantCulture);
     }
 }
