@@ -5,7 +5,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Lane : MonoBehaviour
+public class LaneManager : MonoBehaviour
 {
     [Tooltip("Location of the MIDI file in the 'StreamingAssets' folder")]
     public string fileLocation;

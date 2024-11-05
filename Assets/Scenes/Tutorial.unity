@@ -154,71 +154,6 @@ Transform:
   - {fileID: 330585546}
   m_Father: {fileID: 347476899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &217944023
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 217944025}
-  - component: {fileID: 217944024}
-  m_Layer: 0
-  m_Name: Lane (2-Sec - Tubular Bell)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &217944024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 217944023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fileLocation: The Tale of a Cruel World\(2-Sec - Tubular Bell) The Tale of a Cruel
-    World.mid
-  notePrefab: {fileID: 5856652199986106667, guid: a392fc15abaa3484da34a655cf20d846,
-    type: 3}
-  input:
-    m_Name: Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: b20977f3-6ce0-4fb0-b063-0680d60307a9
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 67413cd4-adb9-47f4-8fd3-d5dd7e4838a5
-      m_Path: <Mouse>/rightButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Input
-      m_Flags: 0
-    m_Flags: 0
---- !u!4 &217944025
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 217944023}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 619470980}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +565,6 @@ Transform:
   m_Children:
   - {fileID: 1854216906}
   - {fileID: 1076679197}
-  - {fileID: 217944025}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &653837911
@@ -872,8 +806,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1076679197}
   - component: {fileID: 1076679196}
+  - component: {fileID: 1076679198}
   m_Layer: 0
-  m_Name: Lane (1-Sec - Violin)
+  m_Name: Secondary Lane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -926,6 +861,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 619470980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!114 &1076679198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076679195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileLocation: The Tale of a Cruel World\(2-Sec - Tubular Bell) The Tale of a Cruel
+    World.mid
+  notePrefab: {fileID: 5856652199986106667, guid: a392fc15abaa3484da34a655cf20d846,
+    type: 3}
+  input:
+    m_Name: Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c1306493-6118-43c6-a29f-3164c0137fe6
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: a0d2e60c-8eb0-415f-9b46-147d7bd4fe04
+      m_Path: <Mouse>/rightButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &1107494446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,7 +1669,7 @@ GameObject:
   - component: {fileID: 1854216906}
   - component: {fileID: 1854216905}
   m_Layer: 0
-  m_Name: 'Lane (1-Pri : Piano)'
+  m_Name: Primary Lane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
