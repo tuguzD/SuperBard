@@ -11,16 +11,17 @@ public class Lane : MonoBehaviour
     public string fileLocation;
     private MidiFile _midiFile;
     
-    [Tooltip("Input action to register by lane")]
-    public InputAction input;
+    [Header("User interaction")]
     [Tooltip("Note object that will be spawned in this lane")]
     public GameObject notePrefab;
+    [Tooltip("Input action to register by lane")]
+    public InputAction input;
     
     [Tooltip("List of already spawned notes")]
     private readonly List<Note> _notes = new();
-
     [Tooltip("List of moments when notes will be tapped")]
-    public List<double> timeStamps = new();
+    private readonly List<double> _timeStamps = new();
+    
     private int _spawnIndex;
     private int _inputIndex;
 
@@ -36,23 +37,28 @@ public class Lane : MonoBehaviour
 
     private void Start()
     {
+        SetTimeStamps(GetDataFromMidi());
+    }
+
+    private Melanchall.DryWetMidi.Interaction.Note[] GetDataFromMidi()
+    {
         _midiFile = MidiFile.Read($"{Application.streamingAssetsPath}/{fileLocation}");
         
         var notes = _midiFile.GetNotes();
         var array = new Melanchall.DryWetMidi.Interaction.Note[notes.Count];
         notes.CopyTo(array, 0);
         
-        SetTimeStamps(array);
+        return array;
     }
 
-    public void SetTimeStamps(Melanchall.DryWetMidi.Interaction.Note[] notes)
+    private void SetTimeStamps(Melanchall.DryWetMidi.Interaction.Note[] notes)
     {
         foreach (var note in notes)
         {
             var metricTimeSpan = TimeConverter.ConvertTo<MetricTimeSpan>(
                 note.Time, _midiFile.GetTempoMap());
 
-            timeStamps.Add(
+            _timeStamps.Add(
                 (double)metricTimeSpan.Minutes * 60f + metricTimeSpan.Seconds +
                 (double)metricTimeSpan.Milliseconds / 1000f);
         }
@@ -62,28 +68,28 @@ public class Lane : MonoBehaviour
     {
         double timeStamp;
 
-        if (_spawnIndex < timeStamps.Count)
+        if (_spawnIndex < _timeStamps.Count)
         {
-            timeStamp = timeStamps[_spawnIndex];
+            timeStamp = _timeStamps[_spawnIndex];
             if (SongManager.GetAudioSourceTime() >= timeStamp - SongManager.Instance.noteTime)
             {
-                var note = Instantiate(notePrefab, transform);
-                _notes.Add(note.GetComponent<Note>());
-                note.GetComponent<Note>().assignTime = (float)timeStamp;
+                var note = Instantiate(notePrefab, transform).GetComponent<Note>();
+                _notes.Add(note);
+                note.assignTime = (float)timeStamp;
                 _spawnIndex++;
             }
         }
 
-        if (_inputIndex < timeStamps.Count)
+        if (_inputIndex < _timeStamps.Count)
         {
-            timeStamp = timeStamps[_inputIndex];
+            timeStamp = _timeStamps[_inputIndex];
             var errorMargin = SongManager.Instance.errorMargin;
-            var audioTime =
+            var audioSourceTime =
                 SongManager.GetAudioSourceTime() - (SongManager.Instance.inputDelay / 1000.0);
 
             if (input.triggered)
             {
-                if (Math.Abs(audioTime - timeStamp) < errorMargin)
+                if (Math.Abs(audioSourceTime - timeStamp) < errorMargin)
                 {
                     ScoreManager.Hit();
                     print($"Hit on {_inputIndex} note");
@@ -93,11 +99,11 @@ public class Lane : MonoBehaviour
                 else
                 {
                     ScoreManager.Punish();
-                    print($"Hit inaccurate on {_inputIndex} note with {Math.Abs(audioTime - timeStamp)} delay");
+                    print($"Hit with {Math.Abs(audioSourceTime - timeStamp)} delay on {_inputIndex} note");
                 }
             }
 
-            if (timeStamp + errorMargin <= audioTime)
+            if (timeStamp + errorMargin <= audioSourceTime)
             {
                 ScoreManager.Miss();
                 print($"Missed {_inputIndex} note");
