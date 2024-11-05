@@ -12,22 +12,22 @@ public class NoteManager : MonoBehaviour
 
     private void Start()
     {
-        _instantiateTime = SongManager.GetAudioSourceTime();
+        _instantiateTime = GameManager.GetAudioSourceTime();
         
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        var sinceInstantiate = SongManager.GetAudioSourceTime() - _instantiateTime;
-        var t = (float)(sinceInstantiate / (SongManager.Instance.noteTime * 2));
+        var sinceInstantiate = GameManager.GetAudioSourceTime() - _instantiateTime;
+        var t = (float)(sinceInstantiate / (GameManager.Instance.noteTime * 2));
 
         if (t > 1) Destroy(gameObject);
         else
         {
             transform.localPosition = Vector3.Lerp(
-                Vector3.up * SongManager.Instance.noteSpawnY,
-                Vector3.up * SongManager.Instance.noteDespawnY, t);
+                Vector3.up * GameManager.Instance.noteSpawnY,
+                Vector3.up * GameManager.Instance.noteDespawnY, t);
             _spriteRenderer.enabled = true;
         }
     }

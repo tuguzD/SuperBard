@@ -185,6 +185,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fileLocation: The Tale of a Cruel World\(2-Sec - Tubular Bell) The Tale of a Cruel
     World.mid
+  notePrefab: {fileID: 5856652199986106667, guid: a392fc15abaa3484da34a655cf20d846,
+    type: 3}
   input:
     m_Name: Input
     m_Type: 0
@@ -202,9 +204,6 @@ MonoBehaviour:
       m_Action: Input
       m_Flags: 0
     m_Flags: 0
-  notePrefab: {fileID: 5856652199986106667, guid: a392fc15abaa3484da34a655cf20d846,
-    type: 3}
-  timeStamps: []
 --- !u!4 &217944025
 Transform:
   m_ObjectHideFlags: 0
@@ -893,6 +892,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileLocation: The Tale of a Cruel World\(1-Sec - Violin) The Tale of a Cruel World.mid
+  notePrefab: {fileID: 5856652199986106667, guid: a392fc15abaa3484da34a655cf20d846,
+    type: 3}
   input:
     m_Name: Input
     m_Type: 0
@@ -910,9 +911,6 @@ MonoBehaviour:
       m_Action: Input
       m_Flags: 0
     m_Flags: 0
-  notePrefab: {fileID: 5856652199986106667, guid: a392fc15abaa3484da34a655cf20d846,
-    type: 3}
-  timeStamps: []
 --- !u!4 &1076679197
 Transform:
   m_ObjectHideFlags: 0
@@ -1273,8 +1271,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1330002065}
-  - component: {fileID: 1330002068}
   - component: {fileID: 1330002067}
+  - component: {fileID: 1330002068}
   - component: {fileID: 1330002066}
   m_Layer: 0
   m_Name: Game Manager
@@ -1722,6 +1720,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileLocation: The Tale of a Cruel World\(1-Pri - Piano) The Tale of a Cruel World.mid
+  notePrefab: {fileID: 4098882643473743837, guid: 6f79c2caacb8fcd49a70de2a9a17688d,
+    type: 3}
   input:
     m_Name: Input
     m_Type: 0
@@ -1739,9 +1739,6 @@ MonoBehaviour:
       m_Action: Input
       m_Flags: 0
     m_Flags: 0
-  notePrefab: {fileID: 4098882643473743837, guid: 6f79c2caacb8fcd49a70de2a9a17688d,
-    type: 3}
-  timeStamps: []
 --- !u!4 &1854216906
 Transform:
   m_ObjectHideFlags: 0

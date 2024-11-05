@@ -77,7 +77,7 @@ public class Lane : MonoBehaviour
     {
         var timeStamp = _timeStamps[_spawnIndex];
 
-        if (SongManager.GetAudioSourceTime() < timeStamp - SongManager.Instance.noteTime) return;
+        if (GameManager.GetAudioSourceTime() < timeStamp - GameManager.Instance.noteTime) return;
         var note = Instantiate(notePrefab, transform).GetComponent<NoteManager>();
         
         _notes.Add(note);
@@ -89,9 +89,9 @@ public class Lane : MonoBehaviour
     private void CheckInputIndex()
     {
         var timeStamp = _timeStamps[_inputIndex];
-        var errorMargin = SongManager.Instance.errorMargin;
+        var errorMargin = GameManager.Instance.errorMargin;
         var audioSourceTime =
-            SongManager.GetAudioSourceTime() - (SongManager.Instance.inputDelay / 1000.0);
+            GameManager.GetAudioSourceTime() - (GameManager.Instance.inputDelay / 1000.0);
 
         if (input.triggered)
         {

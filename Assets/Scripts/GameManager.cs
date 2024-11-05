@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-public class SongManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static SongManager Instance;
+    public static GameManager Instance;
     public AudioSource audioSource;
     
     [Header("Audio source settings")]
