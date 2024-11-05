@@ -18,7 +18,7 @@ public class Lane : MonoBehaviour
     public InputAction input;
     
     [Tooltip("List of already spawned notes")]
-    private readonly List<Note> _notes = new();
+    private readonly List<NoteManager> _notes = new();
     [Tooltip("List of moments when notes will be tapped")]
     private readonly List<double> _timeStamps = new();
     
@@ -40,18 +40,18 @@ public class Lane : MonoBehaviour
         SetTimeStamps(GetDataFromMidi());
     }
 
-    private Melanchall.DryWetMidi.Interaction.Note[] GetDataFromMidi()
+    private Note[] GetDataFromMidi()
     {
         _midiFile = MidiFile.Read($"{Application.streamingAssetsPath}/{fileLocation}");
         
         var notes = _midiFile.GetNotes();
-        var array = new Melanchall.DryWetMidi.Interaction.Note[notes.Count];
+        var array = new Note[notes.Count];
         notes.CopyTo(array, 0);
         
         return array;
     }
 
-    private void SetTimeStamps(Melanchall.DryWetMidi.Interaction.Note[] notes)
+    private void SetTimeStamps(Note[] notes)
     {
         foreach (var note in notes)
         {
@@ -66,49 +66,54 @@ public class Lane : MonoBehaviour
 
     private void Update()
     {
-        double timeStamp;
+        if (_spawnIndex < _timeStamps.Count) 
+            CheckSpawnIndex();
+        
+        if (_inputIndex < _timeStamps.Count)
+            CheckInputIndex();
+    }
 
-        if (_spawnIndex < _timeStamps.Count)
+    private void CheckSpawnIndex()
+    {
+        var timeStamp = _timeStamps[_spawnIndex];
+
+        if (SongManager.GetAudioSourceTime() < timeStamp - SongManager.Instance.noteTime) return;
+        var note = Instantiate(notePrefab, transform).GetComponent<NoteManager>();
+        
+        _notes.Add(note);
+        note.assignTime = (float)timeStamp;
+        
+        _spawnIndex++;
+    }
+    
+    private void CheckInputIndex()
+    {
+        var timeStamp = _timeStamps[_inputIndex];
+        var errorMargin = SongManager.Instance.errorMargin;
+        var audioSourceTime =
+            SongManager.GetAudioSourceTime() - (SongManager.Instance.inputDelay / 1000.0);
+
+        if (input.triggered)
         {
-            timeStamp = _timeStamps[_spawnIndex];
-            if (SongManager.GetAudioSourceTime() >= timeStamp - SongManager.Instance.noteTime)
+            if (Math.Abs(audioSourceTime - timeStamp) < errorMargin)
             {
-                var note = Instantiate(notePrefab, transform).GetComponent<Note>();
-                _notes.Add(note);
-                note.assignTime = (float)timeStamp;
-                _spawnIndex++;
+                ScoreManager.Hit();
+                print($"Hit on {_inputIndex} note");
+                Destroy(_notes[_inputIndex].gameObject);
+                _inputIndex++;
+            }
+            else
+            {
+                ScoreManager.Punish();
+                print($"Hit with {Math.Abs(audioSourceTime - timeStamp)} delay on {_inputIndex} note");
             }
         }
 
-        if (_inputIndex < _timeStamps.Count)
+        if (timeStamp + errorMargin <= audioSourceTime)
         {
-            timeStamp = _timeStamps[_inputIndex];
-            var errorMargin = SongManager.Instance.errorMargin;
-            var audioSourceTime =
-                SongManager.GetAudioSourceTime() - (SongManager.Instance.inputDelay / 1000.0);
-
-            if (input.triggered)
-            {
-                if (Math.Abs(audioSourceTime - timeStamp) < errorMargin)
-                {
-                    ScoreManager.Hit();
-                    print($"Hit on {_inputIndex} note");
-                    Destroy(_notes[_inputIndex].gameObject);
-                    _inputIndex++;
-                }
-                else
-                {
-                    ScoreManager.Punish();
-                    print($"Hit with {Math.Abs(audioSourceTime - timeStamp)} delay on {_inputIndex} note");
-                }
-            }
-
-            if (timeStamp + errorMargin <= audioSourceTime)
-            {
-                ScoreManager.Miss();
-                print($"Missed {_inputIndex} note");
-                _inputIndex++;
-            }
+            ScoreManager.Miss();
+            print($"Missed {_inputIndex} note");
+            _inputIndex++;
         }
     }
 }

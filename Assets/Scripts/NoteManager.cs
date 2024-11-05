@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Note : MonoBehaviour
+public class NoteManager : MonoBehaviour
 {
     [Tooltip("Time when it's gonna be tapped by the player")]
     public float assignTime;
