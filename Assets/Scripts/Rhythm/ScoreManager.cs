@@ -50,8 +50,10 @@ public class ScoreManager : MonoBehaviour
 
     public static void Miss(float modifier)
     {
+        if (!Mathf.Approximately(modifier, Mathf.Epsilon)) 
+            _comboScore = 0;
+        
         Punish(modifier);
-        _comboScore = 0;
         
         // Instance.missingSound.Play();
     }

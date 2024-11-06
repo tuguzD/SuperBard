@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -38,6 +39,8 @@ public class GameManager : MonoBehaviour
     private IEnumerator WaitAudio()
     {
         yield return new WaitForSeconds(audioSource.clip.length);
+        
+        EditorApplication.isPlaying = false;
         Application.Quit();
     }
 
