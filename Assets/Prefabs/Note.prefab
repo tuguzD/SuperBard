@@ -50,8 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3aa1b5f9d6e81d44af29c273b3d8a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assignTime: 0
   image: {fileID: 4000760533205435925}
+  assignTime: 0
 --- !u!222 &1358007275376394705
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 4b32d33f3a693cc4db9a782cf12b558d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
