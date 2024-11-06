@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   assignTime: 0
+  image: {fileID: 4000760533205435925}
 --- !u!222 &1358007275376394705
 CanvasRenderer:
   m_ObjectHideFlags: 0
