@@ -14,6 +14,8 @@ public class LaneManager : MonoBehaviour
     [Header("User interaction")]
     [Tooltip("Note object that will be spawned in this lane")]
     public GameObject notePrefab;
+    [Tooltip("Allows changing note scale and it's hit points")]
+    public float priorityModifier = 1.0f;
     [Tooltip("Input action to register by lane")]
     public InputAction input;
     
@@ -81,6 +83,7 @@ public class LaneManager : MonoBehaviour
         var note = Instantiate(notePrefab, transform).GetComponent<NoteManager>();
         
         _notes.Add(note);
+        note.maxScale *= priorityModifier;
         note.assignTime = (float)timeStamp;
         
         _spawnIndex++;
@@ -97,7 +100,7 @@ public class LaneManager : MonoBehaviour
         {
             if (_notes[_inputIndex].isColliding)
             {
-                ScoreManager.Hit();
+                ScoreManager.Hit(priorityModifier);
                 if (_notes[_inputIndex].gameObject)
                     Destroy(_notes[_inputIndex].gameObject);
                 
@@ -106,14 +109,14 @@ public class LaneManager : MonoBehaviour
             }
             else
             {
-                ScoreManager.Punish();
+                ScoreManager.Punish(priorityModifier);
                 print($"Hit with {Math.Abs(audioSourceTime - timeStamp)} delay on {_inputIndex} note");
             }
         }
 
         if (timeStamp + errorMargin <= audioSourceTime)
         {
-            ScoreManager.Miss();
+            ScoreManager.Miss(priorityModifier);
             print($"Missed {_inputIndex} note");
             _inputIndex++;
         }

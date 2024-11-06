@@ -9,10 +9,12 @@ public class NoteManager : MonoBehaviour
     [Tooltip("Time when it's gonna be tapped by the player")]
     public float assignTime;
 
+    [Tooltip("Whether the note is colliding with the crosshair")]
+    [HideInInspector] public bool isColliding;
+    [HideInInspector] public float maxScale = 0.75f;
+    
     [Tooltip("Time when it's gonna be instantiated")]
     private double _instantiateTime;
-
-    public bool isColliding;
 
     private void Start()
     {
@@ -34,6 +36,6 @@ public class NoteManager : MonoBehaviour
         }
         
         transform.localScale = Vector3.Lerp(
-            transform.localScale, Vector3.one * 0.75f, Time.deltaTime * 5);
+            transform.localScale, Vector3.one * maxScale, Time.deltaTime * 5);
     }
 }
