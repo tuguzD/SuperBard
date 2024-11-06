@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,15 +30,5 @@ public class NoteManager : MonoBehaviour
                 Vector3.right * GameManager.Instance.despawnPosition, t);
             image.enabled = true;
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        Debug.Log("Player should hit now!");
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        Debug.Log("Destroy?");
     }
 }

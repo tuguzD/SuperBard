@@ -98,8 +98,10 @@ public class LaneManager : MonoBehaviour
             if (Math.Abs(audioSourceTime - timeStamp) < errorMargin)
             {
                 ScoreManager.Hit();
+                if (_notes[_inputIndex].gameObject)
+                    Destroy(_notes[_inputIndex].gameObject);
+                
                 print($"Hit on {_inputIndex} note");
-                Destroy(_notes[_inputIndex].gameObject);
                 _inputIndex++;
             }
             else
