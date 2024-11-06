@@ -92,7 +92,6 @@ public class LaneManager : MonoBehaviour
     private void CheckInputIndex()
     {
         var timeStamp = _timeStamps[_inputIndex];
-        var errorMargin = GameManager.Instance.errorMargin;
         var audioSourceTime =
             GameManager.GetAudioSourceTime() - (GameManager.Instance.inputDelay / 1000.0);
 
@@ -114,7 +113,7 @@ public class LaneManager : MonoBehaviour
             }
         }
 
-        if (timeStamp + errorMargin <= audioSourceTime)
+        if (GameManager.Instance.errorMargin + timeStamp <= audioSourceTime)
         {
             ScoreManager.Miss(priorityModifier);
             print($"Missed {_inputIndex} note");
