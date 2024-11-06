@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Tutorial : MonoBehaviour
+public class TutorialDay : MonoBehaviour
 {
     public LaneManager laneManager;
 
