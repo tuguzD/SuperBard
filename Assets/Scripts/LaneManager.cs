@@ -93,9 +93,9 @@ public class LaneManager : MonoBehaviour
         var audioSourceTime =
             GameManager.GetAudioSourceTime() - (GameManager.Instance.inputDelay / 1000.0);
 
-        if (input.triggered)
+        if (input.triggered && _inputIndex < _notes.Count)
         {
-            if (Math.Abs(audioSourceTime - timeStamp) < errorMargin)
+            if (_notes[_inputIndex].isColliding)
             {
                 ScoreManager.Hit();
                 if (_notes[_inputIndex].gameObject)

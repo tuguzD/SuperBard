@@ -274,7 +274,12 @@ PrefabInstance:
     - target: {fileID: 7106312707955769829, guid: 69bd5a2ca15fc244ebef7e85336985d8,
         type: 3}
       propertyPath: m_Size.x
-      value: 25
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106312707955769829, guid: 69bd5a2ca15fc244ebef7e85336985d8,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1063,7 +1068,12 @@ PrefabInstance:
     - target: {fileID: 7106312707955769829, guid: 69bd5a2ca15fc244ebef7e85336985d8,
         type: 3}
       propertyPath: m_Size.x
-      value: 25
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106312707955769829, guid: 69bd5a2ca15fc244ebef7e85336985d8,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1770,9 +1780,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1330002066}
   startDelay: 2
-  errorMargin: 0.15
+  errorMargin: 0.2
   inputDelay: 0
-  aliveTime: 1
+  aliveTime: 1.5
   spawnPosition: 500
   tapPosition: 960
 --- !u!114 &1330002068

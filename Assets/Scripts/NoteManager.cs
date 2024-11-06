@@ -12,6 +12,8 @@ public class NoteManager : MonoBehaviour
     [Tooltip("Time when it's gonna be instantiated")]
     private double _instantiateTime;
 
+    public bool isColliding;
+
     private void Start()
     {
         _instantiateTime = GameManager.GetAudioSourceTime();
