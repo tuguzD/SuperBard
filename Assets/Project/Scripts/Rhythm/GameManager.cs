@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(audioSource.clip.length);
         
-        EditorApplication.isPlaying = false;
+        // EditorApplication.isPlaying = false;
         Application.Quit();
     }
 
