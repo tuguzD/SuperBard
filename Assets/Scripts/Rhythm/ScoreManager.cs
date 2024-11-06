@@ -40,7 +40,7 @@ public class ScoreManager : MonoBehaviour
         if (!_comboScore.Equals(0.0f) && ((int)_comboScore / ScoreEnlarger) != 0)
         {
             _totalScore += (_comboScore / ScoreEnlarger) * modifier;
-            _totalScore = (float)Math.Floor(_totalScore) * modifier;
+            _totalScore = (float)Math.Floor(_totalScore);
         }
         _totalScore += 1 * modifier;
         _comboScore += 1;

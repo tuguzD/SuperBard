@@ -385,7 +385,7 @@ MonoBehaviour:
   fileLocation: The Tale of a Cruel World\(1-Pri - Piano) The Tale of a Cruel World.mid
   notePrefab: {fileID: 7192501791943554919, guid: 6f79c2caacb8fcd49a70de2a9a17688d,
     type: 3}
-  priorityModifier: 1
+  priorityModifier: 0.75
   input:
     m_Name: Input
     m_Type: 0
@@ -1550,7 +1550,7 @@ MonoBehaviour:
     World.mid
   notePrefab: {fileID: 3412058426916638766, guid: a392fc15abaa3484da34a655cf20d846,
     type: 3}
-  priorityModifier: 1
+  priorityModifier: 1.5
   input:
     m_Name: Input
     m_Type: 0
