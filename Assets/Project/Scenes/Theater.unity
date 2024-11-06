@@ -7815,7 +7815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1645438251}
   startDelay: 2
-  errorMargin: 0.2
+  errorMargin: 0.1
   inputDelay: 0
   aliveTime: 1.5
   spawnPosition: 500
