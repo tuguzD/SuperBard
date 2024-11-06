@@ -1772,9 +1772,9 @@ MonoBehaviour:
   startDelay: 2
   errorMargin: 0.15
   inputDelay: 0
-  aliveTime: 2
-  spawnPosition: -100
-  tapPosition: 900
+  aliveTime: 1
+  spawnPosition: 500
+  tapPosition: 960
 --- !u!114 &1330002068
 MonoBehaviour:
   m_ObjectHideFlags: 0

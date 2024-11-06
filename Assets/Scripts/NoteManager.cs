@@ -30,5 +30,8 @@ public class NoteManager : MonoBehaviour
                 Vector3.right * GameManager.Instance.despawnPosition, t);
             image.enabled = true;
         }
+        
+        transform.localScale = Vector3.Lerp(
+            transform.localScale, Vector3.one * 0.75f, Time.deltaTime * 5);
     }
 }
