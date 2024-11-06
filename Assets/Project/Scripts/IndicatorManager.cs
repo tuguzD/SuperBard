@@ -1,10 +1,23 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class CollisionManager : MonoBehaviour
+public class IndicatorManager : MonoBehaviour
 {
+    public Image image;
+    public LaneManager lane;
+
+    private void Update()
+    {
+        if (lane.input.WasReleasedThisFrame())
+            image.color = new Color(1, 1, 1, 1);
+        
+        if (lane.input.WasPressedThisFrame()) 
+            image.color = new Color(1, 1, 1, 0.35f);
+    }
+
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.GetComponent<CollisionManager>()) return;
+        if (other.gameObject.GetComponent<IndicatorManager>()) return;
         other.gameObject.GetComponent<NoteManager>()
             .isColliding = true;
 
@@ -14,7 +27,7 @@ public class CollisionManager : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.GetComponent<CollisionManager>()) return;
+        if (other.gameObject.GetComponent<IndicatorManager>()) return;
         other.gameObject.GetComponent<NoteManager>()
             .isColliding = false;
 

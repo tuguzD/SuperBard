@@ -306,6 +306,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0952b7709a945c3a7db831c48d658b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 5990667877875567428}
+  lane: {fileID: 2999702937491641618}
+--- !u!114 &5990667877875567428 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4000760533205435925, guid: 69bd5a2ca15fc244ebef7e85336985d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 7252675787768270161}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3094666245247185314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8917097949795360645 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2240905185917113044, guid: 69bd5a2ca15fc244ebef7e85336985d8,
