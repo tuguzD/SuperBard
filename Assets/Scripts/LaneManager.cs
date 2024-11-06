@@ -77,7 +77,7 @@ public class LaneManager : MonoBehaviour
     {
         var timeStamp = _timeStamps[_spawnIndex];
 
-        if (GameManager.GetAudioSourceTime() < timeStamp - GameManager.Instance.noteTime) return;
+        if (GameManager.GetAudioSourceTime() < timeStamp - GameManager.Instance.aliveTime) return;
         var note = Instantiate(notePrefab, transform).GetComponent<NoteManager>();
         
         _notes.Add(note);

@@ -16,12 +16,12 @@ public class GameManager : MonoBehaviour
 
     [Header("Notes settings")]
     [Tooltip("Player reaction time, or how much time note is gonna be on the screen")]
-    public float noteTime;
+    public float aliveTime;
     [Tooltip("Position where the note is gonna appear on the screen")]
-    public float noteSpawnY;
+    public float spawnPosition;
     [Tooltip("Position where the note is gonna be tapped by the player")]
-    public float noteTapY;
-    public float noteDespawnY => noteTapY - (noteSpawnY - noteTapY);
+    public float tapPosition;
+    public float despawnPosition => tapPosition - (spawnPosition - tapPosition);
 
     private void Start()
     {
