@@ -11,7 +11,7 @@ public class NoteManager : MonoBehaviour
 
     [Tooltip("Whether the note is colliding with the crosshair")]
     [HideInInspector] public bool isColliding;
-    [HideInInspector] public float maxScale = 0.75f;
+    public float maxScale = 0.5f;
     
     [Tooltip("Time when it's gonna be instantiated")]
     private double _instantiateTime;

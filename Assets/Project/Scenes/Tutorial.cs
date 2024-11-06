@@ -17,13 +17,13 @@ public class Tutorial : MonoBehaviour
 
     private void TubularBellRemovePriority()
     {
-        if (laneManager.priorityModifier.Equals(1.5f))
-            laneManager.priorityModifier = 0.0f;
+        if (laneManager.priorityModifier.Equals(2))
+            laneManager.priorityModifier = 0;
     }
 
     private void TubularBellAddPriority()
     {
-        if (laneManager.priorityModifier.Equals(0.0f))
-            laneManager.priorityModifier = 1.5f;
+        if (laneManager.priorityModifier.Equals(0))
+            laneManager.priorityModifier = 2;
     }
 }
