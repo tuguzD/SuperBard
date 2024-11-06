@@ -10099,6 +10099,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Primary
       objectReference: {fileID: 0}
+    - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
+        type: 3}
+      propertyPath: notePrefab
+      value: 
+      objectReference: {fileID: 7192501791943554919, guid: 6f79c2caacb8fcd49a70de2a9a17688d,
+        type: 3}
+    - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
+        type: 3}
+      propertyPath: fileLocation
+      value: The Tale of a Cruel World\(1-Pri - Piano) The Tale of a Cruel World.mid
+      objectReference: {fileID: 0}
+    - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
+        type: 3}
+      propertyPath: priorityModifier
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 7272635776091881828, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
       propertyPath: m_Pivot.x

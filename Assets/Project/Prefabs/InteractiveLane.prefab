@@ -85,10 +85,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileLocation: The Tale of a Cruel World\(1-Pri - Piano) The Tale of a Cruel World.mid
-  notePrefab: {fileID: 7192501791943554919, guid: 6f79c2caacb8fcd49a70de2a9a17688d,
-    type: 3}
-  priorityModifier: 0.75
+  fileLocation: undefined
+  notePrefab: {fileID: 0}
+  priorityModifier: 1
   input:
     m_Name: Input
     m_Type: 0
