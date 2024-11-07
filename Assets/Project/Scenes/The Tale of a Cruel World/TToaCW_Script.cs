@@ -6,7 +6,7 @@ public class TToaCW_Script : MonoBehaviour
 {
     private static void NextLevel()
     {
-        SceneManager.LoadScene("Tutorial Night");
+        SceneManager.LoadScene("RtS (Tutorial #2)");
     }
 
     private void Start()

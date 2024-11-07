@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // ReSharper disable once InconsistentNaming
 public class RtS_Script : MonoBehaviour
@@ -12,9 +13,14 @@ public class RtS_Script : MonoBehaviour
         Application.Quit();
 #endif
     }
+    
+    private static void NextLevel()
+    {
+        SceneManager.LoadScene("TToaCW (Tutorial #1)");
+    }
 
     private void Start()
     {
-        GameManager.Instance.Callback = QuitGame;
+        GameManager.Instance.Callback = NextLevel;
     }
 }
