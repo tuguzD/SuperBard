@@ -5,38 +5,38 @@ using UnityEngine;
 public class RtS_Pri_DrumSet_LaneManager : LaneManager
 {
     private float _storedPriority;
-    
+
     private new void Start()
     {
         var delay = gameManager.startDelay;
         base.Start();
-    
+
         Invoke(nameof(RemoveBasicPriority),
-            delay + 51f);
+            delay + (52 - 1));
         Invoke(nameof(AddBackBasicPriority),
-            delay + 97.5f);
-        
-        // Invoke(nameof(RemoveBasicPriority),
-        //     delay + 51f);
-        // Invoke(nameof(AddBackBasicPriority),
-        //     delay + 97.5f);
+            delay + (98 - 0.5f));
+
+        Invoke(nameof(RemoveBasicPriority),
+            delay + (178 - 1));
+        Invoke(nameof(AddBackBasicPriority),
+            delay + (225 - 0.5f));
     }
-    
+
     private void RemoveBasicPriority()
     {
         _storedPriority = priorityModifier;
-        priorityModifier = 0.75f;
-    
-        Debug.LogError(
+        priorityModifier = 0.625f;
+
+        Debug.LogWarning(
             $"Priority removed, but stored as {_storedPriority}");
     }
-    
+
     private void AddBackBasicPriority()
     {
         priorityModifier = _storedPriority;
         _storedPriority = 0;
-    
-        Debug.LogError(
+
+        Debug.LogWarning(
             $"Priority added back, cleared in class to be {_storedPriority}");
     }
 }

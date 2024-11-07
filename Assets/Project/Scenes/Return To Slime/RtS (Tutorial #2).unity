@@ -795,11 +795,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1964328518}
+      addedObject: {fileID: 1964328517}
     - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1964328517}
+      addedObject: {fileID: 1964328518}
   m_SourcePrefab: {fileID: 100100000, guid: 6c006112d3dd3c04884a57cab15f16bc, type: 3}
 --- !u!224 &358340194 stripped
 RectTransform:
@@ -1169,7 +1169,7 @@ MonoBehaviour:
   instrumentName: Violin
   notePrefab: {fileID: 4281696700594583171, guid: 9a70490090a73d948ac08d7ca207df03,
     type: 3}
-  priorityModifier: 1.5
+  priorityModifier: 1.625
   input:
     m_Name: Input
     m_Type: 0
@@ -1239,7 +1239,7 @@ MonoBehaviour:
   instrumentName: Flute
   notePrefab: {fileID: 4281696700594583171, guid: 9a70490090a73d948ac08d7ca207df03,
     type: 3}
-  priorityModifier: 1.5
+  priorityModifier: 1.625
   input:
     m_Name: Input
     m_Type: 0
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   instrumentName: Oboe
   notePrefab: {fileID: 4281696700594583171, guid: 9a70490090a73d948ac08d7ca207df03,
     type: 3}
-  priorityModifier: 1.5
+  priorityModifier: 1.625
   input:
     m_Name: Input
     m_Type: 0
@@ -2586,7 +2586,7 @@ MonoBehaviour:
   instrumentName: Distortion Guitar
   notePrefab: {fileID: 2531333866981604717, guid: e69e7b2eeb0865a48a721e15741c1df7,
     type: 3}
-  priorityModifier: 1.25
+  priorityModifier: 1.375
   input:
     m_Name: Input
     m_Type: 0
