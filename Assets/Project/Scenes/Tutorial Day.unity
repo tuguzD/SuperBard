@@ -7811,7 +7811,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laneManager: {fileID: 222183794}
-  game: {fileID: 1645438253}
 --- !u!1 &1670576319 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1186322858270923181, guid: 00b2ce0087fb322459fc35430532ed7b,
@@ -8141,6 +8140,95 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1001 &1729856747
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1902696840}
+    m_Modifications:
+    - target: {fileID: 163574437490929926, guid: 1a4d20c2a85cbe247ba9dbac2307aa86,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 163574437490929926, guid: 1a4d20c2a85cbe247ba9dbac2307aa86,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 163574437490929926, guid: 1a4d20c2a85cbe247ba9dbac2307aa86,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 163574437490929926, guid: 1a4d20c2a85cbe247ba9dbac2307aa86,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 163574437490929926, guid: 1a4d20c2a85cbe247ba9dbac2307aa86,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 163574437490929926, guid: 1a4d20c2a85cbe247ba9dbac2307aa86,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: 163574437490929926, guid: 1a4d20c2a85cbe247ba9dbac2307aa86,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 163574437490929926, guid: 1a4d20c2a85cbe247ba9dbac2307aa86,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 163574437490929926, guid: 1a4d20c2a85cbe247ba9dbac2307aa86,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 163574437490929926, guid: 1a4d20c2a85cbe247ba9dbac2307aa86,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 163574437490929926, guid: 1a4d20c2a85cbe247ba9dbac2307aa86,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 652725872570887100, guid: 1a4d20c2a85cbe247ba9dbac2307aa86,
+        type: 3}
+      propertyPath: m_Name
+      value: GwangjuTheater_Exterior
+      objectReference: {fileID: 0}
+    - target: {fileID: 652725872570887100, guid: 1a4d20c2a85cbe247ba9dbac2307aa86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 3498861413619477955, guid: 1a4d20c2a85cbe247ba9dbac2307aa86, type: 3}
+    - {fileID: 227424799799764550, guid: 1a4d20c2a85cbe247ba9dbac2307aa86, type: 3}
+    - {fileID: 3332105633853254252, guid: 1a4d20c2a85cbe247ba9dbac2307aa86, type: 3}
+    - {fileID: 6804927006442750315, guid: 1a4d20c2a85cbe247ba9dbac2307aa86, type: 3}
+    - {fileID: 1096295148848242319, guid: 1a4d20c2a85cbe247ba9dbac2307aa86, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1a4d20c2a85cbe247ba9dbac2307aa86, type: 3}
+--- !u!4 &1729856748 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 163574437490929926, guid: 1a4d20c2a85cbe247ba9dbac2307aa86,
+    type: 3}
+  m_PrefabInstance: {fileID: 1729856747}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1735030198 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 624207276802153122, guid: 00b2ce0087fb322459fc35430532ed7b,
@@ -8658,6 +8746,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7342710778653468694}
+  - {fileID: 1729856748}
   - {fileID: 314863363}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
