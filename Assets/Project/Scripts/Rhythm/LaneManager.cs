@@ -106,20 +106,20 @@ public class LaneManager : MonoBehaviour
                 if (_notes[_inputIndex].gameObject)
                     Destroy(_notes[_inputIndex].gameObject);
                 
-                print($"Hit on {_inputIndex} note");
+                print($"Hit on {_inputIndex} note of {instrumentName}");
                 _inputIndex++;
             }
             else
             {
                 ScoreManager.Punish(priorityModifier);
-                print($"Hit with {Math.Abs(audioSourceTime - timeStamp)} delay on {_inputIndex} note");
+                print($"Early hit on {_inputIndex} note with {Math.Abs(audioSourceTime - timeStamp)} delay");
             }
         }
 
         if (GameManager.Instance.errorMargin + timeStamp <= audioSourceTime)
         {
             ScoreManager.Miss(priorityModifier);
-            print($"Missed {_inputIndex} note");
+            print($"Missed {_inputIndex} note of {instrumentName}");
             _inputIndex++;
         }
     }
