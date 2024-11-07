@@ -40,7 +40,7 @@ public class LaneManager : MonoBehaviour
         input.Disable();
     }
 
-    private void Start()
+    protected void Start()
     {
         SetTimeStamps(GetDataFromMidi());
     }
