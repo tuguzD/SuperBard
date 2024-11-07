@@ -629,6 +629,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
+        type: 3}
       propertyPath: notePrefab
       value: 
       objectReference: {fileID: 7192501791943554919, guid: 6f79c2caacb8fcd49a70de2a9a17688d,
@@ -778,18 +783,23 @@ PrefabInstance:
       propertyPath: input.m_SingletonActionBindings.Array.data[0].m_Action
       value: Input
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1964328517}
+      addedObject: {fileID: 1964328521}
     - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1964328518}
+    - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1964328517}
   m_SourcePrefab: {fileID: 100100000, guid: 6c006112d3dd3c04884a57cab15f16bc, type: 3}
 --- !u!224 &358340194 stripped
 RectTransform:
@@ -2541,7 +2551,7 @@ MonoBehaviour:
   instrumentName: Harpsichord
   notePrefab: {fileID: 7134901030783439249, guid: b03050f96b5001f468e8f37b22d7409e,
     type: 3}
-  priorityModifier: 1.25
+  priorityModifier: 1
   input:
     m_Name: Input
     m_Type: 0
@@ -2574,7 +2584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fileLocation: (3-Pri - Distortion Guitar) Return To Slime.mid
   instrumentName: Distortion Guitar
-  notePrefab: {fileID: 7134901030783439249, guid: b03050f96b5001f468e8f37b22d7409e,
+  notePrefab: {fileID: 2531333866981604717, guid: e69e7b2eeb0865a48a721e15741c1df7,
     type: 3}
   priorityModifier: 1.25
   input:
@@ -2587,6 +2597,41 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 0d45cee3-1a44-4ba6-a776-e09aa3253de5
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input
+      m_Flags: 0
+    m_Flags: 0
+  gameManager: {fileID: 823241444}
+--- !u!114 &1964328521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964328514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484b996c40b14a489a70eeb23d7d5ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileLocation: (1-Pri - Drum Set) Return To Slime.mid
+  instrumentName: Drum Set
+  notePrefab: {fileID: 7192501791943554919, guid: 6f79c2caacb8fcd49a70de2a9a17688d,
+    type: 3}
+  priorityModifier: 1
+  input:
+    m_Name: Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 045035cc-d1c8-44e7-a524-b7ec3e969591
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 3ff8d14e-05fc-4e3c-a0c9-3c96dfff99bc
       m_Path: <Mouse>/leftButton
       m_Interactions: 
       m_Processors: 
