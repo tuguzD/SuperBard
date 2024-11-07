@@ -754,10 +754,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1964328519}
-    - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
-        type: 3}
       insertIndex: -1
       addedObject: {fileID: 1964328517}
     - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
@@ -1100,6 +1096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileLocation: Return To Slime\(2-Sec - Violin) Return To Slime.mid
+  instrumentName: 
   notePrefab: {fileID: 4281696700594583171, guid: 9a70490090a73d948ac08d7ca207df03,
     type: 3}
   priorityModifier: 1.5
@@ -1133,6 +1130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileLocation: Return To Slime\(3-Sec - Distortion Guitar) Return To Slime.mid
+  instrumentName: 
   notePrefab: {fileID: 3412058426916638766, guid: a392fc15abaa3484da34a655cf20d846,
     type: 3}
   priorityModifier: 1.25
@@ -1166,6 +1164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileLocation: Return To Slime\(4-Sec - Flute) Return To Slime.mid
+  instrumentName: 
   notePrefab: {fileID: 4281696700594583171, guid: 9a70490090a73d948ac08d7ca207df03,
     type: 3}
   priorityModifier: 1.5
@@ -1199,6 +1198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileLocation: Return To Slime\(5-Sec - Horn in F) Return To Slime.mid
+  instrumentName: 
   notePrefab: {fileID: 3412058426916638766, guid: a392fc15abaa3484da34a655cf20d846,
     type: 3}
   priorityModifier: 1.25
@@ -1232,6 +1232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileLocation: Return To Slime\(6-Sec - Oboe) Return To Slime.mid
+  instrumentName: 
   notePrefab: {fileID: 4281696700594583171, guid: 9a70490090a73d948ac08d7ca207df03,
     type: 3}
   priorityModifier: 1.5
@@ -1451,6 +1452,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 823241441}
+  - component: {fileID: 823241445}
   - component: {fileID: 823241444}
   - component: {fileID: 823241443}
   - component: {fileID: 823241442}
@@ -1603,11 +1605,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 823241442}
   startDelay: 2
-  errorMargin: 0.1
+  errorMargin: -0.05
   inputDelay: 0
   aliveTime: 1.5
   spawnPosition: 500
   tapPosition: 960
+--- !u!114 &823241445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823241440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e0321374634e25a4dc1ca7d0bcaf81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  primaryLaneManager: {fileID: 1964328514}
+  secondaryLaneManager: {fileID: 539280510}
 --- !u!1 &825803187
 GameObject:
   m_ObjectHideFlags: 0
@@ -2446,18 +2462,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 358340193}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1964328515 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
-    type: 3}
-  m_PrefabInstance: {fileID: 358340193}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964328514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1964328517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2471,6 +2475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileLocation: Return To Slime\(2-Pri - Harpsichord) Return To Slime.mid
+  instrumentName: 
   notePrefab: {fileID: 7134901030783439249, guid: b03050f96b5001f468e8f37b22d7409e,
     type: 3}
   priorityModifier: 1.25
@@ -2504,6 +2509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileLocation: Return To Slime\(3-Pri - Distortion Guitar) Return To Slime.mid
+  instrumentName: 
   notePrefab: {fileID: 7134901030783439249, guid: b03050f96b5001f468e8f37b22d7409e,
     type: 3}
   priorityModifier: 1.25
@@ -2524,19 +2530,6 @@ MonoBehaviour:
       m_Action: Input
       m_Flags: 0
     m_Flags: 0
---- !u!114 &1964328519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964328514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36e0321374634e25a4dc1ca7d0bcaf81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  laneManager: {fileID: 1964328515}
 --- !u!1001 &2027423780
 PrefabInstance:
   m_ObjectHideFlags: 0

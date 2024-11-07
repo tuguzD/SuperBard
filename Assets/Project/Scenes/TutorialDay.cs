@@ -1,29 +1,24 @@
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialDay : MonoBehaviour
 {
     public GameObject laneManager;
-
     private LaneManager[] _lanes;
     private float _priorityModifier;
 
-    private void Start()
+    private static void NextLevel()
     {
-        _lanes = laneManager.GetComponents<LaneManager>();
-        GameManager.Instance.Callback = QuitGame;
-
-        InvokeTimedLogic();
+        SceneManager.LoadScene("Tutorial Night");
     }
 
-    private static void QuitGame()
+    private void Start()
     {
-#if UNITY_EDITOR
-        EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        GameManager.Instance.Callback = NextLevel;
+        _lanes = laneManager.GetComponents<LaneManager>();
+
+        InvokeTimedLogic();
     }
 
     private void InvokeTimedLogic()
