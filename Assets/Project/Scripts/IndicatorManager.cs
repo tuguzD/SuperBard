@@ -1,18 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class IndicatorManager : MonoBehaviour
 {
     public Image image;
-    public LaneManager lane;
+
+    [Tooltip("Input action to register by indicator")]
+    public InputAction input;
+
+    private void OnEnable()
+    {
+        input.Enable();
+    }
+
+    private void OnDisable()
+    {
+        input.Disable();
+    }
 
     private void Update()
     {
-        if (lane.input.WasReleasedThisFrame())
-            image.color = new Color(1, 1, 1, 1);
-        
-        if (lane.input.WasPressedThisFrame()) 
-            image.color = new Color(1, 1, 1, 0.35f);
+        image.color = new Color(
+            1, 1, 1, !input.inProgress ? 1.0f : 0.35f);
     }
 
     private void OnCollisionStay2D(Collision2D other)
