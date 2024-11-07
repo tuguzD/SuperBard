@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TutorialDay : MonoBehaviour
+// ReSharper disable once InconsistentNaming
+public class TToaCW_Script : MonoBehaviour
 {
     private static void NextLevel()
     {

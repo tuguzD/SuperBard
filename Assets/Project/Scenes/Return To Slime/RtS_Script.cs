@@ -1,7 +1,8 @@
 using UnityEditor;
 using UnityEngine;
 
-public class TutorialNight : MonoBehaviour
+// ReSharper disable once InconsistentNaming
+public class RtS_Script : MonoBehaviour
 {
     private static void QuitGame()
     {
