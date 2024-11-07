@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2240905185917113044}
   - component: {fileID: 2671253600978582922}
+  - component: {fileID: 2008713691732356362}
   - component: {fileID: 1358007275376394705}
   - component: {fileID: 4000760533205435925}
   - component: {fileID: 7106312707955769829}
@@ -56,6 +57,29 @@ MonoBehaviour:
   assignTime: 0
   isColliding: 0
   maxScale: 0.5
+--- !u!223 &2008713691732356362
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5644374544217586931}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 100
+  m_TargetDisplay: 0
 --- !u!222 &1358007275376394705
 CanvasRenderer:
   m_ObjectHideFlags: 0
