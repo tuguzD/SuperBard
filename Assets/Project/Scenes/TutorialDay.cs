@@ -2,37 +2,47 @@ using UnityEngine;
 
 public class TutorialDay : MonoBehaviour
 {
-    public LaneManager laneManager;
-    public GameManager gameManager;
+    public GameObject laneManager;
+    public GameManager game;
+
+    private LaneManager[] _lanes;
 
     private void Start()
     {
-        var delay = gameManager.startDelay;
+        _lanes = laneManager.GetComponents<LaneManager>();
+        var delay = game.startDelay;
 
-        Invoke(nameof(TubularBellRemovePriority), delay + 0);
+        Invoke(nameof(TubularBellRemovePriority),
+            delay + 0);
 
-        Invoke(nameof(TubularBellAddPriority), delay + 45);
-        Invoke(nameof(TubularBellRemovePriority), delay + 70);
+        Invoke(nameof(TubularBellAddPriority),
+            delay + 45);
+        Invoke(nameof(TubularBellRemovePriority),
+            delay + 70);
 
-        Invoke(nameof(TubularBellAddPriority), delay + 145);
-        Invoke(nameof(TubularBellRemovePriority), delay + 170);
+        Invoke(nameof(TubularBellAddPriority),
+            delay + 145);
+        Invoke(nameof(TubularBellRemovePriority),
+            delay + 170);
     }
 
     private void TubularBellRemovePriority()
     {
-        if (laneManager.instrumentName.Equals("Tubular Bell"))
-        {
-            laneManager.priorityModifier = 0;
-            Debug.LogWarning("Priority removed");
-        }
+        foreach (var lane in _lanes)
+            if (lane.instrumentName.Equals("Tubular Bell"))
+            {
+                lane.priorityModifier = 0;
+                Debug.LogWarning("Priority removed");
+            }
     }
 
     private void TubularBellAddPriority()
     {
-        if (laneManager.instrumentName.Equals("Tubular Bell"))
-        {
-            laneManager.priorityModifier = 2;
-            Debug.LogWarning("Priority added back");
-        }
+        foreach (var lane in _lanes)
+            if (lane.instrumentName.Equals("Tubular Bell"))
+            {
+                lane.priorityModifier = 1.5f;
+                Debug.LogWarning("Priority added back");
+            }
     }
 }

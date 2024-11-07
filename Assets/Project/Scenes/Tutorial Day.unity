@@ -1127,18 +1127,6 @@ MonoBehaviour:
       m_Action: Input
       m_Flags: 0
     m_Flags: 0
---- !u!114 &222183798 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
-    type: 3}
-  m_PrefabInstance: {fileID: 222183792}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 222183794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &231230227
 GameObject:
   m_ObjectHideFlags: 0
@@ -7822,8 +7810,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 133e3d0e9e7f4a6f8fd401a8e407e191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laneManager: {fileID: 222183798}
-  gameManager: {fileID: 1645438253}
+  laneManager: {fileID: 222183794}
+  game: {fileID: 1645438253}
 --- !u!1 &1670576319 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1186322858270923181, guid: 00b2ce0087fb322459fc35430532ed7b,
