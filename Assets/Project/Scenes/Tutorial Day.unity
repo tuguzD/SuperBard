@@ -953,6 +953,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
+      propertyPath: instrumentName
+      value: Violin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
+        type: 3}
       propertyPath: priorityModifier
       value: 1.25
       objectReference: {fileID: 0}
@@ -1072,10 +1077,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 222183796}
-    - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
-        type: 3}
       insertIndex: -1
       addedObject: {fileID: 222183795}
   m_SourcePrefab: {fileID: 100100000, guid: 6c006112d3dd3c04884a57cab15f16bc, type: 3}
@@ -1105,6 +1106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fileLocation: The Tale of a Cruel World\(2-Sec - Tubular Bell) The Tale of a Cruel
     World.mid
+  instrumentName: Tubular Bell
   notePrefab: {fileID: 4281696700594583171, guid: 9a70490090a73d948ac08d7ca207df03,
     type: 3}
   priorityModifier: 1.5
@@ -1125,19 +1127,6 @@ MonoBehaviour:
       m_Action: Input
       m_Flags: 0
     m_Flags: 0
---- !u!114 &222183796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 222183794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 133e3d0e9e7f4a6f8fd401a8e407e191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  laneManager: {fileID: 222183798}
 --- !u!114 &222183798 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
@@ -7663,6 +7652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1645438250}
+  - component: {fileID: 1645438254}
   - component: {fileID: 1645438253}
   - component: {fileID: 1645438252}
   - component: {fileID: 1645438251}
@@ -7820,6 +7810,20 @@ MonoBehaviour:
   aliveTime: 1.5
   spawnPosition: 500
   tapPosition: 960
+--- !u!114 &1645438254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645438249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133e3d0e9e7f4a6f8fd401a8e407e191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laneManager: {fileID: 222183798}
+  gameManager: {fileID: 1645438253}
 --- !u!1 &1670576319 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1186322858270923181, guid: 00b2ce0087fb322459fc35430532ed7b,
@@ -10109,6 +10113,11 @@ PrefabInstance:
         type: 3}
       propertyPath: fileLocation
       value: The Tale of a Cruel World\(1-Pri - Piano) The Tale of a Cruel World.mid
+      objectReference: {fileID: 0}
+    - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
+        type: 3}
+      propertyPath: instrumentName
+      value: Piano
       objectReference: {fileID: 0}
     - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}

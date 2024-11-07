@@ -3,27 +3,36 @@ using UnityEngine;
 public class TutorialDay : MonoBehaviour
 {
     public LaneManager laneManager;
+    public GameManager gameManager;
 
     private void Start()
     {
-        Invoke(nameof(TubularBellRemovePriority), 0);
+        var delay = gameManager.startDelay;
 
-        Invoke(nameof(TubularBellAddPriority), 45);
-        Invoke(nameof(TubularBellRemovePriority), 70);
+        Invoke(nameof(TubularBellRemovePriority), delay + 0);
 
-        Invoke(nameof(TubularBellAddPriority), 145);
-        Invoke(nameof(TubularBellRemovePriority), 170);
+        Invoke(nameof(TubularBellAddPriority), delay + 45);
+        Invoke(nameof(TubularBellRemovePriority), delay + 70);
+
+        Invoke(nameof(TubularBellAddPriority), delay + 145);
+        Invoke(nameof(TubularBellRemovePriority), delay + 170);
     }
 
     private void TubularBellRemovePriority()
     {
-        if (laneManager.priorityModifier.Equals(2))
+        if (laneManager.instrumentName.Equals("Tubular Bell"))
+        {
             laneManager.priorityModifier = 0;
+            Debug.LogWarning("Priority removed");
+        }
     }
 
     private void TubularBellAddPriority()
     {
-        if (laneManager.priorityModifier.Equals(0))
+        if (laneManager.instrumentName.Equals("Tubular Bell"))
+        {
             laneManager.priorityModifier = 2;
+            Debug.LogWarning("Priority added back");
+        }
     }
 }

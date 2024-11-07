@@ -10,6 +10,9 @@ public class LaneManager : MonoBehaviour
     [Tooltip("Location of the MIDI file in the 'StreamingAssets' folder")]
     public string fileLocation;
     private MidiFile _midiFile;
+
+    [Tooltip("Name of the instrument (weapon) played during this lane")]
+    public string instrumentName;
     
     [Header("User interaction")]
     [Tooltip("Note object that will be spawned in this lane")]
