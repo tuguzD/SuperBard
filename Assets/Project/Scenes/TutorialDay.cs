@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class TutorialDay : MonoBehaviour
@@ -28,21 +29,19 @@ public class TutorialDay : MonoBehaviour
 
     private void TubularBellRemovePriority()
     {
-        foreach (var lane in _lanes)
-            if (lane.instrumentName.Equals("Tubular Bell"))
-            {
-                lane.priorityModifier = 0;
-                Debug.LogWarning("Priority removed");
-            }
+        foreach (var lane in _lanes.Where(lane => lane.instrumentName.Equals("Tubular Bell"))) 
+        {
+            lane.priorityModifier = 0;
+            Debug.LogWarning("Priority removed");
+        }
     }
 
     private void TubularBellAddPriority()
     {
-        foreach (var lane in _lanes)
-            if (lane.instrumentName.Equals("Tubular Bell"))
-            {
-                lane.priorityModifier = 1.5f;
-                Debug.LogWarning("Priority added back");
-            }
+        foreach (var lane in _lanes.Where(lane => lane.instrumentName.Equals("Tubular Bell")))
+        {
+            lane.priorityModifier = 1.5f;
+            Debug.LogWarning("Priority added back");
+        }
     }
 }
