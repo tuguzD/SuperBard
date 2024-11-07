@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
-using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public AudioSource audioSource;
+    
+    [Tooltip("Function to be called after audio source ends")]
+    public Action Callback;
     
     [Header("Audio source settings")]
     [Tooltip("Delay an audio, or play it after the provided time (in seconds)")]
@@ -33,15 +36,14 @@ public class GameManager : MonoBehaviour
     private void StartSong()
     {
         audioSource.Play();
-        StartCoroutine(WaitAudio());
+        StartCoroutine(WaitAudio(Callback));
     }
     
-    private IEnumerator WaitAudio()
+    private IEnumerator WaitAudio(Action callback)
     {
         yield return new WaitForSeconds(audioSource.clip.length);
         
-        // EditorApplication.isPlaying = false;
-        Application.Quit();
+        callback.Invoke();
     }
 
     public static double GetAudioSourceTime()

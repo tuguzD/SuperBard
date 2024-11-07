@@ -1,10 +1,10 @@
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class TutorialDay : MonoBehaviour
 {
     public GameObject laneManager;
-    public GameManager gameManager;
 
     private LaneManager[] _lanes;
     private float _priorityModifier;
@@ -12,12 +12,23 @@ public class TutorialDay : MonoBehaviour
     private void Start()
     {
         _lanes = laneManager.GetComponents<LaneManager>();
+        GameManager.Instance.Callback = QuitGame;
+
         InvokeTimedLogic();
+    }
+
+    private static void QuitGame()
+    {
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 
     private void InvokeTimedLogic()
     {
-        var delay = gameManager.startDelay;
+        var delay = GameManager.Instance.startDelay;
 
         Invoke(nameof(TubularBellRemovePriority),
             delay + 0);
@@ -39,7 +50,7 @@ public class TutorialDay : MonoBehaviour
         {
             _priorityModifier = lane.priorityModifier;
             lane.priorityModifier = 0;
-            
+
             Debug.LogWarning($"Priority removed, but stored as {_priorityModifier}");
         }
     }
@@ -50,7 +61,7 @@ public class TutorialDay : MonoBehaviour
         {
             lane.priorityModifier = _priorityModifier;
             _priorityModifier = 0;
-            
+
             Debug.LogWarning($"Priority added back, cleared in class to be {_priorityModifier}");
         }
     }
