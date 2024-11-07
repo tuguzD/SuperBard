@@ -4,14 +4,20 @@ using UnityEngine;
 public class TutorialDay : MonoBehaviour
 {
     public GameObject laneManager;
-    public GameManager game;
+    public GameManager gameManager;
 
     private LaneManager[] _lanes;
+    private float _priorityModifier;
 
     private void Start()
     {
         _lanes = laneManager.GetComponents<LaneManager>();
-        var delay = game.startDelay;
+        InvokeTimedLogic();
+    }
+
+    private void InvokeTimedLogic()
+    {
+        var delay = gameManager.startDelay;
 
         Invoke(nameof(TubularBellRemovePriority),
             delay + 0);
@@ -29,10 +35,12 @@ public class TutorialDay : MonoBehaviour
 
     private void TubularBellRemovePriority()
     {
-        foreach (var lane in _lanes.Where(lane => lane.instrumentName.Equals("Tubular Bell"))) 
+        foreach (var lane in _lanes.Where(lane => lane.instrumentName.Equals("Tubular Bell")))
         {
+            _priorityModifier = lane.priorityModifier;
             lane.priorityModifier = 0;
-            Debug.LogWarning("Priority removed");
+            
+            Debug.LogWarning($"Priority removed, but stored as {_priorityModifier}");
         }
     }
 
@@ -40,8 +48,10 @@ public class TutorialDay : MonoBehaviour
     {
         foreach (var lane in _lanes.Where(lane => lane.instrumentName.Equals("Tubular Bell")))
         {
-            lane.priorityModifier = 1.5f;
-            Debug.LogWarning("Priority added back");
+            lane.priorityModifier = _priorityModifier;
+            _priorityModifier = 0;
+            
+            Debug.LogWarning($"Priority added back, cleared in class to be {_priorityModifier}");
         }
     }
 }
