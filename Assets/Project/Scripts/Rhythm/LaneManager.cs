@@ -13,7 +13,7 @@ public class LaneManager : MonoBehaviour
 
     [Tooltip("Name of the instrument (weapon) played during this lane")]
     public string instrumentName;
-    
+
     [Header("User interaction")]
     [Tooltip("Note object that will be spawned in this lane")]
     public GameObject notePrefab;
@@ -21,12 +21,14 @@ public class LaneManager : MonoBehaviour
     public float priorityModifier = 1.0f;
     [Tooltip("Input action to register by lane")]
     public InputAction input;
-    
+
+    public GameManager gameManager;
+
     [Tooltip("List of already spawned notes")]
     private readonly List<NoteManager> _notes = new();
     [Tooltip("List of moments when notes will be tapped")]
     private readonly List<double> _timeStamps = new();
-    
+
     private int _spawnIndex;
     private int _inputIndex;
 
@@ -47,12 +49,13 @@ public class LaneManager : MonoBehaviour
 
     private Note[] GetDataFromMidi()
     {
-        _midiFile = MidiFile.Read($"{Application.streamingAssetsPath}/{fileLocation}");
-        
+        _midiFile = MidiFile.Read(
+            $"{Application.streamingAssetsPath}/{gameManager.audioSource.clip.name}/{fileLocation}");
+
         var notes = _midiFile.GetNotes();
         var array = new Note[notes.Count];
         notes.CopyTo(array, 0);
-        
+
         return array;
     }
 
@@ -73,7 +76,7 @@ public class LaneManager : MonoBehaviour
     {
         if (_spawnIndex < _timeStamps.Count) 
             CheckSpawnIndex();
-        
+
         if (_inputIndex < _timeStamps.Count)
             CheckInputIndex();
     }
@@ -84,14 +87,14 @@ public class LaneManager : MonoBehaviour
 
         if (GameManager.GetAudioSourceTime() < timeStamp - GameManager.Instance.aliveTime) return;
         var note = Instantiate(notePrefab, transform).GetComponent<NoteManager>();
-        
+
         _notes.Add(note);
         note.maxScale *= priorityModifier;
         note.assignTime = (float)timeStamp;
-        
+
         _spawnIndex++;
     }
-    
+
     private void CheckInputIndex()
     {
         var timeStamp = _timeStamps[_inputIndex];
@@ -105,7 +108,7 @@ public class LaneManager : MonoBehaviour
                 ScoreManager.Hit(priorityModifier);
                 if (_notes[_inputIndex].gameObject)
                     Destroy(_notes[_inputIndex].gameObject);
-                
+
                 print($"Hit on {_inputIndex} note of {instrumentName}");
                 _inputIndex++;
             }

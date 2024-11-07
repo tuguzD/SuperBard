@@ -635,8 +635,13 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 823241444}
+    - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
+        type: 3}
       propertyPath: fileLocation
-      value: Return To Slime\(1-Pri - Drum Set) Return To Slime.mid
+      value: (1-Pri - Drum Set) Return To Slime.mid
       objectReference: {fileID: 0}
     - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
@@ -953,8 +958,13 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 823241444}
+    - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
+        type: 3}
       propertyPath: fileLocation
-      value: Return To Slime\(1-Sec - Harpsichord) Return To Slime.mid
+      value: (1-Sec - Harpsichord) Return To Slime.mid
       objectReference: {fileID: 0}
     - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
@@ -1145,7 +1155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileLocation: Return To Slime\(2-Sec - Violin) Return To Slime.mid
+  fileLocation: (2-Sec - Violin) Return To Slime.mid
   instrumentName: Violin
   notePrefab: {fileID: 4281696700594583171, guid: 9a70490090a73d948ac08d7ca207df03,
     type: 3}
@@ -1167,6 +1177,7 @@ MonoBehaviour:
       m_Action: Input
       m_Flags: 0
     m_Flags: 0
+  gameManager: {fileID: 823241444}
 --- !u!114 &539280515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1179,7 +1190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileLocation: Return To Slime\(3-Sec - Distortion Guitar) Return To Slime.mid
+  fileLocation: (3-Sec - Distortion Guitar) Return To Slime.mid
   instrumentName: Distortion Guitar
   notePrefab: {fileID: 3412058426916638766, guid: a392fc15abaa3484da34a655cf20d846,
     type: 3}
@@ -1201,6 +1212,7 @@ MonoBehaviour:
       m_Action: Input
       m_Flags: 0
     m_Flags: 0
+  gameManager: {fileID: 823241444}
 --- !u!114 &539280516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1213,7 +1225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileLocation: Return To Slime\(4-Sec - Flute) Return To Slime.mid
+  fileLocation: (4-Sec - Flute) Return To Slime.mid
   instrumentName: Flute
   notePrefab: {fileID: 4281696700594583171, guid: 9a70490090a73d948ac08d7ca207df03,
     type: 3}
@@ -1235,6 +1247,7 @@ MonoBehaviour:
       m_Action: Input
       m_Flags: 0
     m_Flags: 0
+  gameManager: {fileID: 823241444}
 --- !u!114 &539280517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1247,7 +1260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileLocation: Return To Slime\(5-Sec - Horn in F) Return To Slime.mid
+  fileLocation: (5-Sec - Horn in F) Return To Slime.mid
   instrumentName: Horn in F
   notePrefab: {fileID: 3412058426916638766, guid: a392fc15abaa3484da34a655cf20d846,
     type: 3}
@@ -1269,6 +1282,7 @@ MonoBehaviour:
       m_Action: Input
       m_Flags: 0
     m_Flags: 0
+  gameManager: {fileID: 823241444}
 --- !u!114 &539280518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1281,7 +1295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileLocation: Return To Slime\(6-Sec - Oboe) Return To Slime.mid
+  fileLocation: (6-Sec - Oboe) Return To Slime.mid
   instrumentName: Oboe
   notePrefab: {fileID: 4281696700594583171, guid: 9a70490090a73d948ac08d7ca207df03,
     type: 3}
@@ -1303,6 +1317,7 @@ MonoBehaviour:
       m_Action: Input
       m_Flags: 0
     m_Flags: 0
+  gameManager: {fileID: 823241444}
 --- !u!1 &613425937 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7380227539983050996, guid: 00b2ce0087fb322459fc35430532ed7b,
@@ -2522,7 +2537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileLocation: Return To Slime\(2-Pri - Harpsichord) Return To Slime.mid
+  fileLocation: (2-Pri - Harpsichord) Return To Slime.mid
   instrumentName: Harpsichord
   notePrefab: {fileID: 7134901030783439249, guid: b03050f96b5001f468e8f37b22d7409e,
     type: 3}
@@ -2544,6 +2559,7 @@ MonoBehaviour:
       m_Action: Input
       m_Flags: 0
     m_Flags: 0
+  gameManager: {fileID: 823241444}
 --- !u!114 &1964328518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2556,7 +2572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileLocation: Return To Slime\(3-Pri - Distortion Guitar) Return To Slime.mid
+  fileLocation: (3-Pri - Distortion Guitar) Return To Slime.mid
   instrumentName: Distortion Guitar
   notePrefab: {fileID: 7134901030783439249, guid: b03050f96b5001f468e8f37b22d7409e,
     type: 3}
@@ -2578,6 +2594,7 @@ MonoBehaviour:
       m_Action: Input
       m_Flags: 0
     m_Flags: 0
+  gameManager: {fileID: 823241444}
 --- !u!1001 &2027423780
 PrefabInstance:
   m_ObjectHideFlags: 0

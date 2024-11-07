@@ -4,8 +4,6 @@ using UnityEngine;
 [AddComponentMenu("Scripts/Tubular Bell Lane (Secondary for 'The Tale of a Cruel World')")]
 public class TToaCW_Sec_TubBell_LaneManager : LaneManager
 {
-    public GameManager gameManager;
-    
     private float _storedPriority;
 
     protected new void Start()
