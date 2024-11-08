@@ -114,7 +114,8 @@ public class LaneManager : MonoBehaviour
             }
             else
             {
-                ScoreManager.Punish(priorityModifier);
+                // ScoreManager.Punish(priorityModifier);
+                ScoreManager.Miss(priorityModifier);
                 print($"Early hit on {_inputIndex} note with {Math.Abs(audioSourceTime - timeStamp)} delay");
             }
         }
