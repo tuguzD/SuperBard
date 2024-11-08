@@ -36,18 +36,22 @@ public class NoteManager : MonoBehaviour
         UpdateColorByPriority();
     }
 
+    private double SinceInstantiate()
+    {
+        var spawnDelay =
+            GameManager.Instance.startDelay - GameManager.Instance.aliveTime;
+
+        return spawnDelay > 0 && instantiateTime < 0
+            ? (Time.timeSinceLevelLoad - spawnDelay) + instantiateTime
+            : GameManager.GetAudioSourceTime() - instantiateTime;
+    }
+
     private void MoveOrDestroyOnTime()
     {
-        var delayMargin = GameManager.Instance.aliveTime - GameManager.Instance.startDelay;
-        
-        var sinceInstantiate =
-            instantiateTime < 0 && delayMargin <= 0
-                ? Time.timeSinceLevelLoad + instantiateTime + delayMargin
-                : GameManager.GetAudioSourceTime() - instantiateTime;
+        var t = (float)(SinceInstantiate() / (GameManager.Instance.aliveTime * 2));
 
-        var t = (float)(sinceInstantiate / (GameManager.Instance.aliveTime * 2));
-
-        if (t > 1) Destroy(gameObject);
+        if (t > 1)
+            Destroy(gameObject);
         else
         {
             transform.localPosition = Vector3.Lerp(
