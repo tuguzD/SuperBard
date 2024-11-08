@@ -52,9 +52,9 @@ public class ScoreManager : MonoBehaviour
     {
         if (!Mathf.Approximately(modifier, Mathf.Epsilon)) 
             _comboScore = 0;
-        
+
         Punish(modifier);
-        
+
         // Instance.missingSound.Play();
     }
 
@@ -62,13 +62,16 @@ public class ScoreManager : MonoBehaviour
     {
         if (_totalScore - 0.5f * modifier > 0) 
             _totalScore -= 0.5f * modifier;
-        
+
         // Instance.punishingSound.Play();
     }
 
     private void Update()
     {
-        comboScore.text = _comboScore.ToString(CultureInfo.InvariantCulture);
-        totalScore.text = _totalScore.ToString(CultureInfo.InvariantCulture);
+        comboScore.text = 
+            _comboScore.ToString(CultureInfo.InvariantCulture);
+
+        totalScore.text = 
+            ((int)_totalScore).ToString(CultureInfo.InvariantCulture);
     }
 }
