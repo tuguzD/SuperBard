@@ -7,13 +7,14 @@ public class NoteManager : MonoBehaviour
 
     [Tooltip("Sprite renderer of the note")]
     public Image image;
+
     private Color _imageColor;
 
     [Tooltip("Time when it's gonna be instantiated")]
     public float instantiateTime;
 
-    [Tooltip("Whether the note is colliding with the crosshair")]
-    [HideInInspector] public bool isColliding;
+    [Tooltip("Whether the note is colliding with the crosshair")] [HideInInspector]
+    public bool isColliding;
 
     private float _scale;
 
@@ -31,15 +32,17 @@ public class NoteManager : MonoBehaviour
 
         transform.localScale = Vector3.Lerp(
             transform.localScale, Vector3.one * (_scale * lane.priorityModifier), Time.deltaTime * 5);
-        
+
         UpdateColorByPriority();
     }
 
     private void MoveOrDestroyOnTime()
     {
-        var sinceInstantiate = 
-            instantiateTime < 0 && GameManager.Instance.aliveTime <= GameManager.Instance.startDelay
-                ? Time.timeSinceLevelLoad + instantiateTime
+        var delayMargin = GameManager.Instance.aliveTime - GameManager.Instance.startDelay;
+        
+        var sinceInstantiate =
+            instantiateTime < 0 && delayMargin <= 0
+                ? Time.timeSinceLevelLoad + instantiateTime + delayMargin
                 : GameManager.GetAudioSourceTime() - instantiateTime;
 
         var t = (float)(sinceInstantiate / (GameManager.Instance.aliveTime * 2));
@@ -56,7 +59,7 @@ public class NoteManager : MonoBehaviour
 
     private void UpdateColorByPriority()
     {
-        if (lane.priorityModifier >= 1) 
+        if (lane.priorityModifier >= 1)
             image.color = _imageColor;
         else
         {
