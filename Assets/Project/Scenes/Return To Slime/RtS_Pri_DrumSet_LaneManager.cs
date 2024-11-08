@@ -17,7 +17,7 @@ public class RtS_Pri_DrumSet_LaneManager : LaneManager
             delay + (98 - 3f));
 
         Invoke(nameof(RemoveBasicPriority),
-            delay + (178 - 1f));
+            delay + (178 - 0.5f));
         Invoke(nameof(AddBackBasicPriority),
             delay + (225 - 3f));
     }

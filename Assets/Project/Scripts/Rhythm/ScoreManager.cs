@@ -62,9 +62,9 @@ public class ScoreManager : MonoBehaviour
     {
         var punishment = 
             (float)Math.Ceiling(priority) * punishModifier;
-        if (_totalScore - punishment < 0) return;
-        
-        _totalScore -= punishment;
+        if (_totalScore - punishment < 0) 
+            _totalScore = 0;
+        else _totalScore -= punishment;
 
         // Instance.punishingSound.Play();
     }
