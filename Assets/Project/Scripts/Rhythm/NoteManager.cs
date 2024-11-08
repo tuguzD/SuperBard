@@ -21,10 +21,11 @@ public class NoteManager : MonoBehaviour
 
     private void Start()
     {
+        _imageColor = image.color;
         _scale = transform.localScale.x;
         transform.localScale = Vector3.zero;
 
-        _imageColor = image.color;
+        // _instantiateTime = assignTime - GameManager.Instance.aliveTime;
         _instantiateTime = GameManager.GetAudioSourceTime();
     }
 
