@@ -88,8 +88,8 @@ public class LaneManager : MonoBehaviour
         if (GameManager.GetAudioSourceTime() < timeStamp - GameManager.Instance.aliveTime) return;
         var note = Instantiate(notePrefab, transform).GetComponent<NoteManager>();
 
+        note.lane = this;
         _notes.Add(note);
-        note.maxScale *= priorityModifier;
         note.assignTime = (float)timeStamp;
 
         _spawnIndex++;
@@ -114,8 +114,8 @@ public class LaneManager : MonoBehaviour
             }
             else
             {
-                // ScoreManager.Punish(priorityModifier);
-                ScoreManager.Miss(priorityModifier);
+                ScoreManager.Punish(priorityModifier);
+                // ScoreManager.Miss(priorityModifier);
                 print($"Early hit on {_inputIndex} note with {Math.Abs(audioSourceTime - timeStamp)} delay");
             }
         }

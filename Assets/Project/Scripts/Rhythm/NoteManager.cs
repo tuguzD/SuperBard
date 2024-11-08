@@ -11,11 +11,13 @@ public class NoteManager : MonoBehaviour
 
     [Tooltip("Whether the note is colliding with the crosshair")]
     [HideInInspector] public bool isColliding;
-    public float maxScale = 0.5f;
+    public float actualScale = 0.5f;
     
     [Tooltip("Time when it's gonna be instantiated")]
     private double _instantiateTime;
 
+    [HideInInspector] public LaneManager lane;
+    
     private void Start()
     {
         _instantiateTime = GameManager.GetAudioSourceTime();
@@ -36,6 +38,6 @@ public class NoteManager : MonoBehaviour
         }
         
         transform.localScale = Vector3.Lerp(
-            transform.localScale, Vector3.one * maxScale, Time.deltaTime * 5);
+            transform.localScale, Vector3.one * (actualScale * lane.priorityModifier), Time.deltaTime * 5);
     }
 }

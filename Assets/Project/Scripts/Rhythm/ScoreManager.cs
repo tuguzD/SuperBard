@@ -35,33 +35,36 @@ public class ScoreManager : MonoBehaviour
         _totalScore = 0;
     }
 
-    public static void Hit(float modifier)
+    public static void Hit(float priority)
     {
-        if (!_comboScore.Equals(0.0f) && ((int)_comboScore / ScoreEnlarger) != 0)
+        if (!_comboScore.Equals(0.0f) && (int)_comboScore / ScoreEnlarger != 0)
         {
-            _totalScore += (_comboScore / ScoreEnlarger) * modifier;
+            _totalScore += (_comboScore / ScoreEnlarger) * priority;
             _totalScore = (float)Math.Floor(_totalScore);
         }
-        _totalScore += 1 * modifier;
+        _totalScore += 1 * priority;
         _comboScore += 1;
 
         // Instance.successHitSound.Play();
     }
 
-    public static void Miss(float modifier)
+    public static void Miss(float priority)
     {
-        if (!Mathf.Approximately(modifier, Mathf.Epsilon)) 
-            _comboScore = 0;
-
-        Punish(modifier);
-
+        if (priority < 1) return;
+        
+        _comboScore = 0;
+        Punish(priority);
+            
         // Instance.missingSound.Play();
     }
 
-    public static void Punish(float modifier)
+    public static void Punish(float priority, float punishModifier = 2)
     {
-        if (_totalScore - 0.5f * modifier > 0) 
-            _totalScore -= 0.5f * modifier;
+        var punishment = 
+            (float)Math.Ceiling(priority) * punishModifier;
+        if (_totalScore - punishment < 0) return;
+        
+        _totalScore -= punishment;
 
         // Instance.punishingSound.Play();
     }
