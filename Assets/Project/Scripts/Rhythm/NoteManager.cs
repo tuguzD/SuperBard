@@ -9,24 +9,20 @@ public class NoteManager : MonoBehaviour
     public Image image;
     private Color _imageColor;
 
-    [Tooltip("Time when it's gonna be tapped by the player")]
-    public float assignTime;
+    [Tooltip("Time when it's gonna be instantiated")]
+    public float instantiateTime;
 
     [Tooltip("Whether the note is colliding with the crosshair")]
     [HideInInspector] public bool isColliding;
 
-    [Tooltip("Time when it's gonna be instantiated")]
-    private double _instantiateTime;
     private float _scale;
 
     private void Start()
     {
         _imageColor = image.color;
+
         _scale = transform.localScale.x;
         transform.localScale = Vector3.zero;
-
-        // _instantiateTime = assignTime - GameManager.Instance.aliveTime;
-        _instantiateTime = GameManager.GetAudioSourceTime();
     }
 
     private void Update()
@@ -41,7 +37,11 @@ public class NoteManager : MonoBehaviour
 
     private void MoveOrDestroyOnTime()
     {
-        var sinceInstantiate = GameManager.GetAudioSourceTime() - _instantiateTime;
+        var sinceInstantiate = 
+            instantiateTime < 0 && GameManager.Instance.aliveTime <= GameManager.Instance.startDelay
+                ? Time.timeSinceLevelLoad + instantiateTime
+                : GameManager.GetAudioSourceTime() - instantiateTime;
+
         var t = (float)(sinceInstantiate / (GameManager.Instance.aliveTime * 2));
 
         if (t > 1) Destroy(gameObject);
