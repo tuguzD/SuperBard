@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class NoteManager : MonoBehaviour
 {
+    [HideInInspector] public LaneManager lane;
+    
     [Tooltip("Sprite renderer of the note")]
     public Image image;
     private Color _imageColor;
@@ -12,17 +14,18 @@ public class NoteManager : MonoBehaviour
 
     [Tooltip("Whether the note is colliding with the crosshair")]
     [HideInInspector] public bool isColliding;
-    public float actualScale = 0.5f;
 
     [Tooltip("Time when it's gonna be instantiated")]
     private double _instantiateTime;
-
-    [HideInInspector] public LaneManager lane;
+    private float _scale;
 
     private void Start()
     {
-        _instantiateTime = GameManager.GetAudioSourceTime();
+        _scale = transform.localScale.x;
+        transform.localScale = Vector3.zero;
+        
         _imageColor = image.color;
+        _instantiateTime = GameManager.GetAudioSourceTime();
     }
 
     private void Update()
@@ -30,7 +33,7 @@ public class NoteManager : MonoBehaviour
         MoveOrDestroyOnTime();
 
         transform.localScale = Vector3.Lerp(
-            transform.localScale, Vector3.one * (actualScale * lane.priorityModifier), Time.deltaTime * 5);
+            transform.localScale, Vector3.one * (_scale * lane.priorityModifier), Time.deltaTime * 5);
         
         UpdateColorByPriority();
     }
