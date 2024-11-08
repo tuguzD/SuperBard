@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class NoteManager : MonoBehaviour
 {
     [HideInInspector] public LaneManager lane;
-    
+
     [Tooltip("Sprite renderer of the note")]
     public Image image;
     private Color _imageColor;
@@ -23,7 +23,7 @@ public class NoteManager : MonoBehaviour
     {
         _scale = transform.localScale.x;
         transform.localScale = Vector3.zero;
-        
+
         _imageColor = image.color;
         _instantiateTime = GameManager.GetAudioSourceTime();
     }
