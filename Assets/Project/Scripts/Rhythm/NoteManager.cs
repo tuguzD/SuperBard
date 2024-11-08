@@ -27,6 +27,16 @@ public class NoteManager : MonoBehaviour
 
     private void Update()
     {
+        MoveOrDestroyOnTime();
+
+        transform.localScale = Vector3.Lerp(
+            transform.localScale, Vector3.one * (actualScale * lane.priorityModifier), Time.deltaTime * 5);
+        
+        UpdateColorByPriority();
+    }
+
+    private void MoveOrDestroyOnTime()
+    {
         var sinceInstantiate = GameManager.GetAudioSourceTime() - _instantiateTime;
         var t = (float)(sinceInstantiate / (GameManager.Instance.aliveTime * 2));
 
@@ -38,10 +48,10 @@ public class NoteManager : MonoBehaviour
                 Vector3.right * GameManager.Instance.despawnPosition, t);
             image.enabled = true;
         }
+    }
 
-        transform.localScale = Vector3.Lerp(
-            transform.localScale, Vector3.one * (actualScale * lane.priorityModifier), Time.deltaTime * 5);
-
+    private void UpdateColorByPriority()
+    {
         if (lane.priorityModifier >= 1) 
             image.color = _imageColor;
         else
