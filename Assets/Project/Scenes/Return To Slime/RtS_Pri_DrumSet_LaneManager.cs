@@ -12,14 +12,14 @@ public class RtS_Pri_DrumSet_LaneManager : LaneManager
         base.Start();
 
         Invoke(nameof(RemoveBasicPriority),
-            delay + (52 - 1));
+            delay + (52 - 1f));
         Invoke(nameof(AddBackBasicPriority),
-            delay + (98 - 0.5f));
+            delay + (98 - 3f));
 
         Invoke(nameof(RemoveBasicPriority),
-            delay + (178 - 1));
+            delay + (178 - 1f));
         Invoke(nameof(AddBackBasicPriority),
-            delay + (225 - 0.5f));
+            delay + (225 - 3f));
     }
 
     private void RemoveBasicPriority()
