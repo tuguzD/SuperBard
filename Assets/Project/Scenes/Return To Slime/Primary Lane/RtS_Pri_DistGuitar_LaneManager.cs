@@ -28,7 +28,7 @@ public class RtS_Pri_DistGuitar_LaneManager : LaneManager
         _storedPriority = priorityModifier;
         priorityModifier = 0f;
 
-        Debug.LogError(
+        Debug.LogWarning(
             $"Priority of {instrumentName} removed, but stored as {_storedPriority}");
     }
 
@@ -37,7 +37,7 @@ public class RtS_Pri_DistGuitar_LaneManager : LaneManager
         priorityModifier = _storedPriority;
         _storedPriority = 0f;
 
-        Debug.LogError(
+        Debug.LogWarning(
             $"Priority of {instrumentName} added back, cleared in class to be {_storedPriority}");
     }
 }
