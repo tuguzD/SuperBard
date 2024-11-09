@@ -58,10 +58,9 @@ public class ScoreManager : MonoBehaviour
         // Instance.missingSound.Play();
     }
 
-    public static void Punish(float priority, float punishModifier = 2)
+    public static void Punish(float priority)
     {
-        var punishment = 
-            (float)Math.Ceiling(priority) * punishModifier;
+        var punishment = (float)Math.Ceiling(priority);
         if (_totalScore - punishment < 0) 
             _totalScore = 0;
         else _totalScore -= punishment;

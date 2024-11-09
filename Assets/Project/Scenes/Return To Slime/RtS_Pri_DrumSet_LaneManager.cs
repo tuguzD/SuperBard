@@ -1,8 +1,8 @@
 using UnityEngine;
 
 // ReSharper disable once InconsistentNaming
-[AddComponentMenu("Scripts/Tubular Bell Lane (Secondary for 'The Tale of a Cruel World')")]
-public class TToaCW_Sec_TubBell_LaneManager : LaneManager
+[AddComponentMenu("Scripts/Drum Set Lane (Primary for 'Return Of Slime')")]
+public class RtS_Pri_DrumSet_LaneManager : LaneManager
 {
     private float _storedPriority;
 
@@ -10,23 +10,22 @@ public class TToaCW_Sec_TubBell_LaneManager : LaneManager
     {
         base.Start();
         var delay = gameManager.startDelay;
-        Invoke(nameof(RemoveBasicPriority), 0f);
 
-        Invoke(nameof(AddBackBasicPriority),
-            delay + 45f);
         Invoke(nameof(RemoveBasicPriority),
-            delay + 70f);
+            delay + (52 - 1f));
+        Invoke(nameof(AddBackBasicPriority),
+            delay + (98 - 3f));
 
-        Invoke(nameof(AddBackBasicPriority),
-            delay + 145f);
         Invoke(nameof(RemoveBasicPriority),
-            delay + 170f);
+            delay + (178 - 0.5f));
+        Invoke(nameof(AddBackBasicPriority),
+            delay + (225 - 3f));
     }
 
     private void RemoveBasicPriority()
     {
         _storedPriority = priorityModifier;
-        priorityModifier = 0f;
+        priorityModifier *= 0.625f;
 
         Debug.LogWarning(
             $"Priority of {instrumentName} removed, but stored as {_storedPriority}");

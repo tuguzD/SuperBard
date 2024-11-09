@@ -1212,7 +1212,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 222183798}
+      addedObject: {fileID: 222183801}
   m_SourcePrefab: {fileID: 100100000, guid: 6c006112d3dd3c04884a57cab15f16bc, type: 3}
 --- !u!224 &222183793 stripped
 RectTransform:
@@ -1226,7 +1226,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 222183792}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &222183798
+--- !u!114 &222183801
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 222183794}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dd5b8e5833941ada1531714d6dfdeb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fileLocation: (2-Sec - Tubular Bell) The Tale of a Cruel World.mid
@@ -1247,12 +1247,12 @@ MonoBehaviour:
     m_Name: Input
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 0f2cb3bc-972c-4c1c-a239-acf7384d8300
+    m_Id: c73ec766-b4ec-403e-806d-1abf46a7c3cd
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: e480fa8a-8cba-4416-b535-74762104a5f9
+      m_Id: f7200f99-ca1a-46ff-bfd3-4f36a66a1b74
       m_Path: <Mouse>/rightButton
       m_Interactions: 
       m_Processors: 

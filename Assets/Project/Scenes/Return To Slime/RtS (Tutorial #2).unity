@@ -666,7 +666,7 @@ PrefabInstance:
         type: 3}
       propertyPath: notePrefab
       value: 
-      objectReference: {fileID: 7192501791943554919, guid: 6f79c2caacb8fcd49a70de2a9a17688d,
+      objectReference: {fileID: 7134901030783439249, guid: b03050f96b5001f468e8f37b22d7409e,
         type: 3}
     - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
@@ -676,12 +676,12 @@ PrefabInstance:
     - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
       propertyPath: fileLocation
-      value: (1-Pri - Drum Set) Return To Slime.mid
+      value: (2-Pri - Harpsichord) Return To Slime.mid
       objectReference: {fileID: 0}
     - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
       propertyPath: instrumentName
-      value: Drum Set
+      value: Harpsichord
       objectReference: {fileID: 0}
     - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
@@ -813,23 +813,18 @@ PrefabInstance:
       propertyPath: input.m_SingletonActionBindings.Array.data[0].m_Action
       value: Input
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: 1964328521}
     - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1964328523}
-    - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1964328524}
+      addedObject: {fileID: 1964328525}
   m_SourcePrefab: {fileID: 100100000, guid: 6c006112d3dd3c04884a57cab15f16bc, type: 3}
 --- !u!224 &358340194 stripped
 RectTransform:
@@ -1151,35 +1146,30 @@ PrefabInstance:
       propertyPath: input.m_SingletonActionBindings.Array.data[0].m_Action
       value: Input
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 539280521}
+      addedObject: {fileID: 539280528}
     - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 539280522}
+      addedObject: {fileID: 539280529}
     - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 539280523}
+      addedObject: {fileID: 539280530}
     - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 539280524}
+      addedObject: {fileID: 539280531}
     - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 539280525}
-    - targetCorrespondingSourceObject: {fileID: 3295544736408324864, guid: 6c006112d3dd3c04884a57cab15f16bc,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 539280526}
+      addedObject: {fileID: 539280532}
   m_SourcePrefab: {fileID: 100100000, guid: 6c006112d3dd3c04884a57cab15f16bc, type: 3}
 --- !u!224 &539280508 stripped
 RectTransform:
@@ -1193,7 +1183,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 539280507}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &539280521
+--- !u!114 &539280528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1202,42 +1192,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 539280510}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f55b7028c5485695ec94b8e3c344c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fileLocation: (1-Sec - Harpsichord) Return To Slime.mid
-  instrumentName: Harpsichord
-  notePrefab: {fileID: 3412058426916638766, guid: a392fc15abaa3484da34a655cf20d846,
-    type: 3}
-  priorityModifier: 1.25
-  input:
-    m_Name: Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 0ac90fd3-2c35-4cf7-baf7-d605f6cb2c22
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 96180767-66df-4bbf-8bd3-7c2bdc918403
-      m_Path: <Mouse>/rightButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Input
-      m_Flags: 0
-    m_Flags: 0
-  gameManager: {fileID: 823241444}
---- !u!114 &539280522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 539280510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df504016f379488585ea632130017ae7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fileLocation: (2-Sec - Violin) Return To Slime.mid
@@ -1249,12 +1204,12 @@ MonoBehaviour:
     m_Name: Input
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: d6e68aeb-f04c-46ec-a56c-cfceff2fcfd4
+    m_Id: bd27cf96-b310-4bbe-83aa-3b3826cb3a82
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 5e12e795-1dd9-491b-88e1-626c3d92fa75
+      m_Id: ae70b3a9-7255-4edb-925b-fe9126daf9ee
       m_Path: <Mouse>/rightButton
       m_Interactions: 
       m_Processors: 
@@ -1263,7 +1218,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   gameManager: {fileID: 823241444}
---- !u!114 &539280523
+--- !u!114 &539280529
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1272,7 +1227,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 539280510}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08cbbc6b866245758f25cc9b5785112e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fileLocation: (3-Sec - Distortion Guitar) Return To Slime.mid
@@ -1284,12 +1239,12 @@ MonoBehaviour:
     m_Name: Input
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: e1b19a47-73d4-4e59-b7a9-de7579f6ea26
+    m_Id: 8bcbe75f-355d-4191-af7a-cb3d3b14276c
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: b44cdcfc-29e9-4557-9715-bc3055fe0f83
+      m_Id: 8897dd2f-106e-4328-8d0a-4fa9e7bd04c2
       m_Path: <Mouse>/rightButton
       m_Interactions: 
       m_Processors: 
@@ -1298,7 +1253,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   gameManager: {fileID: 823241444}
---- !u!114 &539280524
+--- !u!114 &539280530
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1307,7 +1262,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 539280510}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c284662aab7409c89c65c20b8c6b2ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fileLocation: (4-Sec - Flute) Return To Slime.mid
@@ -1319,12 +1274,12 @@ MonoBehaviour:
     m_Name: Input
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 61cbf56f-9eaa-41c0-99fb-868770442136
+    m_Id: 738858d3-8524-4b89-8b4f-4355c4aac4a1
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 9716aa16-2649-4127-b467-a413029794da
+      m_Id: 6f64d59c-5ff7-4ab3-95fb-c55d557967ba
       m_Path: <Mouse>/rightButton
       m_Interactions: 
       m_Processors: 
@@ -1333,7 +1288,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   gameManager: {fileID: 823241444}
---- !u!114 &539280525
+--- !u!114 &539280531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1342,7 +1297,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 539280510}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 981a9f5773644b1aa2edcb5cfa0b51d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fileLocation: (5-Sec - Horn in F) Return To Slime.mid
@@ -1354,12 +1309,12 @@ MonoBehaviour:
     m_Name: Input
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: b5e182f4-eb73-40b5-8321-de0ed134ff5f
+    m_Id: e38f2c78-d5b2-4088-95d8-2899f6d75b00
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 22f489ba-3b26-4521-a498-64de61cbec17
+      m_Id: bf752a61-59e8-45c1-bf61-0eed374fb72f
       m_Path: <Mouse>/rightButton
       m_Interactions: 
       m_Processors: 
@@ -1368,7 +1323,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   gameManager: {fileID: 823241444}
---- !u!114 &539280526
+--- !u!114 &539280532
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1377,7 +1332,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 539280510}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79131136f3f947fcbbe6ea41ce15a0f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fileLocation: (6-Sec - Oboe) Return To Slime.mid
@@ -1389,12 +1344,12 @@ MonoBehaviour:
     m_Name: Input
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 26e3068d-4048-4e94-b019-8b16bb6fa247
+    m_Id: a572edfb-47b5-4cff-bfb0-d247ffb7687e
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: bf52142a-46a5-4ee0-b7f7-a1f4ccaaca06
+      m_Id: df9e3a41-483d-4784-b4d8-2f803f60ebc8
       m_Path: <Mouse>/rightButton
       m_Interactions: 
       m_Processors: 
@@ -3097,7 +3052,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   gameManager: {fileID: 823241444}
---- !u!114 &1964328523
+--- !u!114 &1964328525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3106,42 +3061,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1964328514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b17d0015bd240a29c1868c2802e477c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fileLocation: (2-Pri - Harpsichord) Return To Slime.mid
-  instrumentName: Harpsichord
-  notePrefab: {fileID: 7134901030783439249, guid: b03050f96b5001f468e8f37b22d7409e,
-    type: 3}
-  priorityModifier: 1
-  input:
-    m_Name: Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: c793e288-3d96-4895-acb6-954fbaef2f30
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 6e96e06e-c8d0-4000-920c-8a698da9f2c8
-      m_Path: <Mouse>/leftButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Input
-      m_Flags: 0
-    m_Flags: 0
-  gameManager: {fileID: 823241444}
---- !u!114 &1964328524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964328514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 487baa560f3f411cb0899c4e55b0c6e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 1027602ec1482ea4388964d4931302fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fileLocation: (3-Pri - Distortion Guitar) Return To Slime.mid
@@ -3153,12 +3073,12 @@ MonoBehaviour:
     m_Name: Input
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: b4eb1a4e-65b9-4e0a-83ba-7ee31403c38c
+    m_Id: 964f4a09-c0c7-4e80-9eba-efa674267b58
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 829acdd6-5e8c-4a4d-8a8c-2c4a531d8f66
+      m_Id: 9fc1bfa5-2e85-4725-a7d9-7abce78d20d4
       m_Path: <Mouse>/leftButton
       m_Interactions: 
       m_Processors: 
