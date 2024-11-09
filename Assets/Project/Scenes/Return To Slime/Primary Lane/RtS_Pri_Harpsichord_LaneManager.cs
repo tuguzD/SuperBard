@@ -11,24 +11,24 @@ public class RtS_Pri_Harpsichord_LaneManager : LaneManager
         base.Start();
         var delay = gameManager.startDelay;
         Invoke(nameof(RemoveBasicPriority), 0f);
-        
+
         Invoke(nameof(AddBackBasicPriority),
-            delay + (52 - 1f));
+            delay + (52f - 1f));
         Invoke(nameof(RemoveBasicPriority),
             delay + (98f - 1f));
-        
+
         Invoke(nameof(AddBackBasicPriority),
-            delay + (178 - 0.5f));
+            delay + (178f - 0.5f));
         Invoke(nameof(RemoveBasicPriority),
             delay + (225f - 1f));
     }
-    
+
     private void RemoveBasicPriority()
     {
         _storedPriority = priorityModifier;
         priorityModifier = 0f;
 
-        Debug.LogError(
+        Debug.LogWarning(
             $"Priority of {instrumentName} removed, but stored as {_storedPriority}");
     }
 
@@ -37,7 +37,7 @@ public class RtS_Pri_Harpsichord_LaneManager : LaneManager
         priorityModifier = _storedPriority;
         _storedPriority = 0f;
 
-        Debug.LogError(
+        Debug.LogWarning(
             $"Priority of {instrumentName} added back, cleared in class to be {_storedPriority}");
     }
 }
