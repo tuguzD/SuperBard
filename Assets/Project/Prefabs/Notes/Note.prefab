@@ -53,10 +53,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3aa1b5f9d6e81d44af29c273b3d8a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lane: {fileID: 0}
   image: {fileID: 4000760533205435925}
-  assignTime: 0
+  instantiateTime: 0
   isColliding: 0
-  maxScale: 0.5
 --- !u!223 &2008713691732356362
 Canvas:
   m_ObjectHideFlags: 0
@@ -189,4 +189,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6

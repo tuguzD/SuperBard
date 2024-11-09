@@ -1242,7 +1242,7 @@ MonoBehaviour:
   instrumentName: Tubular Bell
   notePrefab: {fileID: 4281696700594583171, guid: 9a70490090a73d948ac08d7ca207df03,
     type: 3}
-  priorityModifier: 1.5
+  priorityModifier: 1.625
   input:
     m_Name: Input
     m_Type: 0
