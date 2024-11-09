@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager Instance;
-
     [Header("Game score display")]
     [Tooltip("Text displaying game total score on the screen")]
     public TMPro.TextMeshProUGUI totalScore;
@@ -21,8 +19,6 @@ public class ScoreManager : MonoBehaviour
     private static float _comboScore;
 
     [Header("Sound Effects")]
-    [Tooltip("Source of sound effect on hitting the note too early, resulting in score penalty")]
-    public AudioSource punishingSound;
     [Tooltip("Source of sound effect on successfully hitting the note, adding score points")]
     public AudioSource successHitSound;
     [Tooltip("Source of sound effect on skipping the note completely, canceling current combo")]
@@ -30,7 +26,6 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
-        Instance = this;
         _comboScore = 0;
         _totalScore = 0;
     }
@@ -51,21 +46,15 @@ public class ScoreManager : MonoBehaviour
     public static void Miss(float priority)
     {
         if (priority < 1) return;
-        
-        _comboScore = 0;
-        Punish(priority);
-            
-        // Instance.missingSound.Play();
-    }
 
-    public static void Punish(float priority)
-    {
         var punishment = (float)Math.Ceiling(priority);
         if (_totalScore - punishment < 0) 
             _totalScore = 0;
         else _totalScore -= punishment;
 
-        // Instance.punishingSound.Play();
+        _comboScore = 0;
+            
+        // Instance.missingSound.Play();
     }
 
     private void Update()
