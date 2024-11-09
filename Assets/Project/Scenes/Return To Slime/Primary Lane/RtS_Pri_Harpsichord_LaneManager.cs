@@ -1,8 +1,8 @@
 using UnityEngine;
 
 // ReSharper disable once InconsistentNaming
-[AddComponentMenu("Scripts/Tubular Bell Lane (Secondary for 'The Tale of a Cruel World')")]
-public class TToaCW_Sec_TubBell_LaneManager : LaneManager
+[AddComponentMenu("Scripts/Harpsichord Lane (Primary for 'Return Of Slime')")]
+public class RtS_Pri_Harpsichord_LaneManager : LaneManager
 {
     private float _storedPriority;
 
@@ -11,24 +11,24 @@ public class TToaCW_Sec_TubBell_LaneManager : LaneManager
         base.Start();
         var delay = gameManager.startDelay;
         Invoke(nameof(RemoveBasicPriority), 0f);
-
+        
         Invoke(nameof(AddBackBasicPriority),
-            delay + 45f);
+            delay + (52 - 1f));
         Invoke(nameof(RemoveBasicPriority),
-            delay + 70f);
-
+            delay + (98f - 1f));
+        
         Invoke(nameof(AddBackBasicPriority),
-            delay + 145f);
+            delay + (178 - 0.5f));
         Invoke(nameof(RemoveBasicPriority),
-            delay + 170f);
+            delay + (225f - 1f));
     }
-
+    
     private void RemoveBasicPriority()
     {
         _storedPriority = priorityModifier;
         priorityModifier = 0f;
 
-        Debug.LogWarning(
+        Debug.LogError(
             $"Priority of {instrumentName} removed, but stored as {_storedPriority}");
     }
 
@@ -37,7 +37,7 @@ public class TToaCW_Sec_TubBell_LaneManager : LaneManager
         priorityModifier = _storedPriority;
         _storedPriority = 0f;
 
-        Debug.LogWarning(
+        Debug.LogError(
             $"Priority of {instrumentName} added back, cleared in class to be {_storedPriority}");
     }
 }

@@ -8,8 +8,8 @@ public class RtS_Pri_DrumSet_LaneManager : LaneManager
 
     private new void Start()
     {
-        var delay = gameManager.startDelay;
         base.Start();
+        var delay = gameManager.startDelay;
 
         Invoke(nameof(RemoveBasicPriority),
             delay + (52 - 1f));
@@ -28,15 +28,15 @@ public class RtS_Pri_DrumSet_LaneManager : LaneManager
         priorityModifier = 0.625f;
 
         Debug.LogWarning(
-            $"Priority removed, but stored as {_storedPriority}");
+            $"Priority of {instrumentName} removed, but stored as {_storedPriority}");
     }
 
     private void AddBackBasicPriority()
     {
         priorityModifier = _storedPriority;
-        _storedPriority = 0;
+        _storedPriority = 0f;
 
         Debug.LogWarning(
-            $"Priority added back, cleared in class to be {_storedPriority}");
+            $"Priority of {instrumentName} added back, cleared in class to be {_storedPriority}");
     }
 }
