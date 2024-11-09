@@ -87,13 +87,20 @@ public class LaneManager : MonoBehaviour
             (float)_timeStamps[_spawnIndex] - GameManager.Instance.aliveTime;
 
         if (GameManager.GetAudioSourceTime() < instantiateTime) return;
-        var note = Instantiate(notePrefab, transform).GetComponent<NoteManager>();
 
-        note.lane = this;
-        _notes.Add(note);
-        note.instantiateTime = instantiateTime;
-
+        _notes.Add(CreateNode(instantiateTime));
         _spawnIndex++;
+    }
+
+    private NoteManager CreateNode(float instantiateTime)
+    {
+        var note = Instantiate(notePrefab, transform)
+            .GetComponent<NoteManager>();
+        
+        note.lane = this;
+        note.instantiateTime = instantiateTime;
+        
+        return note;
     }
 
     private void CheckInputIndex()
