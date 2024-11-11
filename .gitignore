@@ -153,6 +153,7 @@ StyleCopReport.xml
 *.meta
 *.obj
 *.iobj
+*.fbx
 *.pch
 *.ipdb
 *.pgc
