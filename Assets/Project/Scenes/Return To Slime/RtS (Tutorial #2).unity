@@ -4993,8 +4993,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 823241441}
   - {fileID: 2027423781}
+  - {fileID: 823241441}
   - {fileID: 768807263}
   - {fileID: 999844222}
   - {fileID: 95461852}
@@ -5428,6 +5428,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2133592700}
     m_Modifications:
+    - target: {fileID: 7745622031606388402, guid: 80764696420c47848b3c425a028d4378,
+        type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 3999346333574006661}
     - target: {fileID: 7745622031606388404, guid: 80764696420c47848b3c425a028d4378,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5488,6 +5493,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80764696420c47848b3c425a028d4378, type: 3}
+--- !u!20 &3999346333574006661 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7745622032396041260, guid: 80764696420c47848b3c425a028d4378,
+    type: 3}
+  m_PrefabInstance: {fileID: 3999346333574006660}
+  m_PrefabAsset: {fileID: 0}
 --- !u!215 &7474433844242237608
 ReflectionProbe:
   m_ObjectHideFlags: 0
