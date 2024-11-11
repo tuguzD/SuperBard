@@ -11,18 +11,18 @@ public class RtS_Pri_DrumSet_LaneManager : LaneManager
         base.Start();
         var delay = gameManager.startDelay;
 
-        Invoke(nameof(RemoveBasicPriority),
-            delay + (52 - 1f));
-        Invoke(nameof(AddBackBasicPriority),
-            delay + (98 - 3f));
+        Invoke(nameof(ReduceBasicPriority),
+            delay + (52f - 1f));
+        Invoke(nameof(RevertBasicPriority),
+            delay + (98f - 3f));
 
-        Invoke(nameof(RemoveBasicPriority),
-            delay + (178 - 0.5f));
-        Invoke(nameof(AddBackBasicPriority),
-            delay + (225 - 3f));
+        Invoke(nameof(ReduceBasicPriority),
+            delay + (178f - 0.5f));
+        Invoke(nameof(RevertBasicPriority),
+            delay + (225f - 3f));
     }
 
-    private void RemoveBasicPriority()
+    private void ReduceBasicPriority()
     {
         _storedPriority = priorityModifier;
         priorityModifier *= 0.625f;
@@ -31,7 +31,7 @@ public class RtS_Pri_DrumSet_LaneManager : LaneManager
             $"Priority of {instrumentName} removed, but stored as {_storedPriority}");
     }
 
-    private void AddBackBasicPriority()
+    private void RevertBasicPriority()
     {
         priorityModifier = _storedPriority;
         _storedPriority = 0f;
