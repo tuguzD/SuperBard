@@ -6,7 +6,6 @@ using UnityEngine.Pool;
 public class Gun : ScriptableObject
 {
     public GunType type;
-
     // public string gunName;
     public GameObject modelPrefab;
 
@@ -27,8 +26,7 @@ public class Gun : ScriptableObject
         _activeMonoBehaviour = activeMonoBehaviour;
 
         _trailPool = new ObjectPool<TrailRenderer>(CreateTrail);
-        if (!shootConfig.IsHitscan)
-            _bulletPool = new ObjectPool<Bullet>(CreateBullet);
+        _bulletPool = new ObjectPool<Bullet>(CreateBullet);
 
         var model = Instantiate(modelPrefab, parent, false);
         model.transform.localPosition = spawnPoint;
@@ -49,9 +47,7 @@ public class Gun : ScriptableObject
         );
         shootDirection.Normalize();
 
-        if (shootConfig.IsHitscan)
-            DoHitscanShoot(shootDirection);
-        else DoProjectileShoot(shootDirection);
+        DoProjectileShoot(shootDirection);
     }
 
     private void DoProjectileShoot(Vector3 shootDirection)
@@ -63,38 +59,17 @@ public class Gun : ScriptableObject
         bullet.Spawn(shootDirection * shootConfig.bulletSpawnForce);
 
         var trail = _trailPool.Get();
-        if (trail == null) return;
+        if (!trail) return;
         trail.transform.SetParent(bullet.transform, false);
         trail.transform.localPosition = Vector3.zero;
         trail.emitting = true;
         trail.gameObject.SetActive(true);
     }
 
-    private void DoHitscanShoot(Vector3 shootDirection)
-    {
-        if (Physics.Raycast(
-                _shootSystem.transform.position, shootDirection,
-                out var hit, float.MaxValue, shootConfig.hitMask
-            ))
-        {
-            _activeMonoBehaviour.StartCoroutine(PlayTrail(
-                _shootSystem.transform.position, hit.point, hit
-            ));
-        }
-        else
-        {
-            _activeMonoBehaviour.StartCoroutine(PlayTrail(
-                _shootSystem.transform.position,
-                _shootSystem.transform.position + (shootDirection * trailConfig.missDistance),
-                new RaycastHit()
-            ));
-        }
-    }
-
     private void HandleBulletCollision(Bullet bullet, Collision collision)
     {
         var trail = bullet.GetComponentInChildren<TrailRenderer>();
-        if (trail != null)
+        if (trail)
         {
             trail.transform.SetParent(null, true);
             _activeMonoBehaviour.StartCoroutine(DelayedDisableTrail(trail));
@@ -113,39 +88,6 @@ public class Gun : ScriptableObject
         trail.gameObject.SetActive(false);
 
         _trailPool.Release(trail);
-    }
-
-    private IEnumerator PlayTrail(Vector3 startPoint, Vector3 endPoint, RaycastHit hit)
-    {
-        var instance = _trailPool.Get();
-        instance.gameObject.SetActive(true);
-        instance.transform.position = startPoint;
-        yield return null; // avoid position carry-over from last frame if reused
-
-        instance.emitting = true;
-
-        var distance = Vector3.Distance(startPoint, endPoint);
-        var remainingDistance = distance;
-        while (remainingDistance > 0)
-        {
-            instance.transform.position = Vector3.Lerp(
-                startPoint,
-                endPoint,
-                Mathf.Clamp01(1 - (remainingDistance / distance))
-            );
-            remainingDistance -= trailConfig.simulationSpeed * Time.deltaTime;
-
-            yield return null;
-        }
-
-        instance.transform.position = endPoint;
-
-        yield return new WaitForSeconds(trailConfig.duration);
-        yield return null;
-
-        instance.emitting = false;
-        instance.gameObject.SetActive(false);
-        _trailPool.Release(instance);
     }
 
     private TrailRenderer CreateTrail()
