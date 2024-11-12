@@ -6,6 +6,7 @@ using UnityEngine.Pool;
 public class Gun : ScriptableObject
 {
     public GunType type;
+
     // public string gunName;
     public GameObject modelPrefab;
 
@@ -17,14 +18,17 @@ public class Gun : ScriptableObject
     public TrailConfig trailConfig;
 
     private MonoBehaviour _activeMonoBehaviour;
-    // private GameObject _model;
     private ParticleSystem _shootSystem;
+    private ObjectPool<Bullet> _bulletPool;
     private ObjectPool<TrailRenderer> _trailPool;
 
     public void Spawn(Transform parent, MonoBehaviour activeMonoBehaviour)
     {
         _activeMonoBehaviour = activeMonoBehaviour;
+
         _trailPool = new ObjectPool<TrailRenderer>(CreateTrail);
+        if (!shootConfig.IsHitscan)
+            _bulletPool = new ObjectPool<Bullet>(CreateBullet);
 
         var model = Instantiate(modelPrefab, parent, false);
         model.transform.localPosition = spawnPoint;
@@ -45,6 +49,29 @@ public class Gun : ScriptableObject
         );
         shootDirection.Normalize();
 
+        if (shootConfig.IsHitscan)
+            DoHitscanShoot(shootDirection);
+        else DoProjectileShoot(shootDirection);
+    }
+
+    private void DoProjectileShoot(Vector3 shootDirection)
+    {
+        var bullet = _bulletPool.Get();
+        bullet.gameObject.SetActive(true);
+        bullet.OnCollision += HandleBulletCollision;
+        bullet.transform.position = _shootSystem.transform.position;
+        bullet.Spawn(shootDirection * shootConfig.bulletSpawnForce);
+
+        var trail = _trailPool.Get();
+        if (trail == null) return;
+        trail.transform.SetParent(bullet.transform, false);
+        trail.transform.localPosition = Vector3.zero;
+        trail.emitting = true;
+        trail.gameObject.SetActive(true);
+    }
+
+    private void DoHitscanShoot(Vector3 shootDirection)
+    {
         if (Physics.Raycast(
                 _shootSystem.transform.position, shootDirection,
                 out var hit, float.MaxValue, shootConfig.hitMask
@@ -62,6 +89,30 @@ public class Gun : ScriptableObject
                 new RaycastHit()
             ));
         }
+    }
+
+    private void HandleBulletCollision(Bullet bullet, Collision collision)
+    {
+        var trail = bullet.GetComponentInChildren<TrailRenderer>();
+        if (trail != null)
+        {
+            trail.transform.SetParent(null, true);
+            _activeMonoBehaviour.StartCoroutine(DelayedDisableTrail(trail));
+        }
+
+        bullet.gameObject.SetActive(false);
+        _bulletPool.Release(bullet);
+    }
+
+    private IEnumerator DelayedDisableTrail(TrailRenderer trail)
+    {
+        yield return new WaitForSeconds(trailConfig.duration);
+        yield return null;
+
+        trail.emitting = false;
+        trail.gameObject.SetActive(false);
+
+        _trailPool.Release(trail);
     }
 
     private IEnumerator PlayTrail(Vector3 startPoint, Vector3 endPoint, RaycastHit hit)
@@ -112,5 +163,10 @@ public class Gun : ScriptableObject
         trail.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 
         return trail;
+    }
+
+    private Bullet CreateBullet()
+    {
+        return Instantiate(shootConfig.bulletPrefab);
     }
 }

@@ -2494,6 +2494,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4539332911444418875, guid: a5e2707c3ca237d48988de1246c46a95, type: 3}
+--- !u!4 &798799755 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3790460297928576762, guid: 80764696420c47848b3c425a028d4378,
+    type: 3}
+  m_PrefabInstance: {fileID: 3999346333574006660}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &805447032
 GameObject:
   m_ObjectHideFlags: 0
@@ -4612,7 +4618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunType: 0
-  gunParent: {fileID: 3999346333574006662}
+  gunParent: {fileID: 798799755}
   guns:
   - {fileID: 11400000, guid: 805fa62603344c744b79054804fc2631, type: 2}
   activeGun: {fileID: 0}
@@ -5860,12 +5866,6 @@ PrefabInstance:
 --- !u!20 &3999346333574006661 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 7745622032396041260, guid: 80764696420c47848b3c425a028d4378,
-    type: 3}
-  m_PrefabInstance: {fileID: 3999346333574006660}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &3999346333574006662 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3790460297928576762, guid: 80764696420c47848b3c425a028d4378,
     type: 3}
   m_PrefabInstance: {fileID: 3999346333574006660}
   m_PrefabAsset: {fileID: 0}
