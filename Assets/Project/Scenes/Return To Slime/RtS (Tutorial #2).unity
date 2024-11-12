@@ -2175,7 +2175,7 @@ GameObject:
   - component: {fileID: 718644289}
   - component: {fileID: 718644288}
   - component: {fileID: 718644287}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collision (Right)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2318,6 +2318,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733300031}
   m_CullTransparentMesh: 1
+--- !u!1 &741112068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7745622031606388408, guid: 80764696420c47848b3c425a028d4378,
+    type: 3}
+  m_PrefabInstance: {fileID: 3999346333574006660}
+  m_PrefabAsset: {fileID: 0}
 --- !u!64 &755568565
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2903,7 +2909,7 @@ GameObject:
   - component: {fileID: 874073851}
   - component: {fileID: 874073850}
   - component: {fileID: 874073849}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collision (Front)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3769,7 +3775,7 @@ GameObject:
   - component: {fileID: 1686901362}
   - component: {fileID: 1686901361}
   - component: {fileID: 1686901360}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collision (Left)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4172,7 +4178,7 @@ GameObject:
   - component: {fileID: 1821132116}
   - component: {fileID: 1821132115}
   - component: {fileID: 1821132114}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collision (Back)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4562,6 +4568,54 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3999346333574006660}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2027423787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741112068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c7c6df20f34ca1a041348fc7e2e5d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input:
+    m_Name: Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 20a91a29-ae4e-4cd4-b833-30420eebc637
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 8a47d4d1-232c-4dc5-b211-894b3e48c676
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input
+      m_Flags: 0
+    m_Flags: 0
+  playerCamera: {fileID: 3999346333574006661}
+  gunSelector: {fileID: 2027423788}
+--- !u!114 &2027423788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741112068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbba0742b784e11b1a0f3f00af6b42e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunType: 0
+  gunParent: {fileID: 3999346333574006662}
+  guns:
+  - {fileID: 11400000, guid: 805fa62603344c744b79054804fc2631, type: 2}
+  activeGun: {fileID: 0}
 --- !u!1 &2037022246
 GameObject:
   m_ObjectHideFlags: 0
@@ -5793,11 +5847,25 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7745622031606388408, guid: 80764696420c47848b3c425a028d4378,
+        type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 2027423788}
+    - targetCorrespondingSourceObject: {fileID: 7745622031606388408, guid: 80764696420c47848b3c425a028d4378,
+        type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 2027423787}
   m_SourcePrefab: {fileID: 100100000, guid: 80764696420c47848b3c425a028d4378, type: 3}
 --- !u!20 &3999346333574006661 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 7745622032396041260, guid: 80764696420c47848b3c425a028d4378,
+    type: 3}
+  m_PrefabInstance: {fileID: 3999346333574006660}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3999346333574006662 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3790460297928576762, guid: 80764696420c47848b3c425a028d4378,
     type: 3}
   m_PrefabInstance: {fileID: 3999346333574006660}
   m_PrefabAsset: {fileID: 0}
