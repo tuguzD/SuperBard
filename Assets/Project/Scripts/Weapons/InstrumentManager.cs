@@ -1,13 +1,13 @@
-// using System;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using NaughtyAttributes;
 
-// [Serializable]
-// public struct GunSlot {
-//     [SerializeField] private Transform parent;
-//     [SerializeField] [ReadOnly] private Gun gun;
-// }
+[Serializable] public struct GunSlot
+{
+    [SerializeField] public Transform parent;
+    [SerializeField] [ReadOnly] public Gun gun;
+}
 
 public class InstrumentManager : MonoBehaviour
 {
@@ -15,51 +15,24 @@ public class InstrumentManager : MonoBehaviour
 
     [Header("Left arm configs")] [SerializeField] [Tooltip("Input action for instrument in left hand")]
     private InputAction inputLeft;
-
-    // [SerializeField] private GunSlot leftPrimary;
-    
-    [SerializeField] private Transform parentLeftPrimary;
-    [SerializeField] [ReadOnly] private Gun gunLeftPrimary;
-    [SerializeField] private Transform parentLeftSecondary;
-    [SerializeField] [ReadOnly] private Gun gunLeftSecondary;
+    [SerializeField] private GunSlot leftPrimary;
+    [SerializeField] private GunSlot leftSecondary;
 
     [Header("Right arm configs")] [SerializeField] [Tooltip("Input action for instrument in right hand")]
     private InputAction inputRight;
+    [SerializeField] private GunSlot rightPrimary;
+    [SerializeField] private GunSlot rightSecondary;
 
-    [SerializeField] private Transform parentRightPrimary;
-    [SerializeField] [ReadOnly] private Gun gunRightPrimary;
-    [SerializeField] private Transform parentRightSecondary;
-    [SerializeField] [ReadOnly] private Gun gunRightSecondary;
-
-    private void SetupGun(Gun gunNew, Transform parentSlot)
+    private void SetupGun(Gun gun, GunSlot parentSlot)
     {
-        if (parentSlot == parentLeftPrimary) gunLeftPrimary = gunNew;
-        if (parentSlot == parentLeftSecondary) gunLeftSecondary = gunNew;
-        if (parentSlot == parentRightPrimary) gunRightPrimary = gunNew;
-        if (parentSlot == parentRightSecondary) gunRightSecondary = gunNew;
-        
-        // switch (parentSlot)
-        // {
-        //     case var _ when ReferenceEquals(parentSlot, parentLeftPrimary):
-        //         gunLeftPrimary = gunNew;
-        //         break;
-        //     case var _ when ReferenceEquals(parentSlot, parentLeftSecondary):
-        //         gunLeftSecondary = gunNew;
-        //         break;
-        //     case var _ when ReferenceEquals(parentSlot, parentRightPrimary):
-        //         gunRightPrimary = gunNew;
-        //         break;
-        //     case var _ when ReferenceEquals(parentSlot, parentRightSecondary):
-        //         gunRightSecondary = gunNew;
-        //         break;
-        // }
-        gunNew.Spawn(parentSlot, this);
+        parentSlot.gun = gun;
+        gun.Spawn(parentSlot.parent, this);
     }
 
     public bool PickUpGun(Gun gun)
     {
         // ThrowActiveGun();
-        SetupGun(gun, parentRightSecondary);
+        SetupGun(gun, leftPrimary);
         return true;
     }
 
@@ -86,13 +59,13 @@ public class InstrumentManager : MonoBehaviour
         var direction = playerCamera.transform.forward;
         if (inputLeft.triggered)
         {
-            if (gunLeftPrimary) gunLeftPrimary.Shoot(direction);
-            if (gunLeftSecondary) gunLeftSecondary.Shoot(direction);
+            if (leftPrimary.gun) leftPrimary.gun.Shoot(direction);
+            if (leftSecondary.gun) leftSecondary.gun.Shoot(direction);
         }
         if (inputRight.triggered)
         {
-            if (gunRightPrimary) gunRightPrimary.Shoot(direction);
-            if (gunRightSecondary) gunRightSecondary.Shoot(direction);
+            if (rightPrimary.gun) rightPrimary.gun.Shoot(direction);
+            if (rightSecondary.gun) rightSecondary.gun.Shoot(direction);
         }
     }
 }

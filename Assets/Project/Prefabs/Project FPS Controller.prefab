@@ -2748,8 +2748,12 @@ MonoBehaviour:
       m_Action: Input Left
       m_Flags: 0
     m_Flags: 0
-  parentLeftPrimary: {fileID: 3790460297928576762}
-  parentLeftSecondary: {fileID: 5878732502951040069}
+  leftPrimary:
+    parent: {fileID: 3790460297928576762}
+    gun: {fileID: 0}
+  leftSecondary:
+    parent: {fileID: 5878732502951040069}
+    gun: {fileID: 0}
   inputRight:
     m_Name: Input Right
     m_Type: 0
@@ -2767,8 +2771,12 @@ MonoBehaviour:
       m_Action: Input Right
       m_Flags: 0
     m_Flags: 0
-  parentRightPrimary: {fileID: 581829474908150471}
-  parentRightSecondary: {fileID: 6492475176497295332}
+  rightPrimary:
+    parent: {fileID: 581829474908150471}
+    gun: {fileID: 0}
+  rightSecondary:
+    parent: {fileID: 6492475176497295332}
+    gun: {fileID: 0}
 --- !u!4 &7745622032396041259 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4459864851310106429, guid: 6bacecc4f3df9584198879c73a6b6c36,
