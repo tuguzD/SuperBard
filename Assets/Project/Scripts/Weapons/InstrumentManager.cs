@@ -1,6 +1,13 @@
+// using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using NaughtyAttributes;
+
+// [Serializable]
+// public struct GunSlot {
+//     [SerializeField] private Transform parent;
+//     [SerializeField] [ReadOnly] private Gun gun;
+// }
 
 public class InstrumentManager : MonoBehaviour
 {
@@ -9,6 +16,8 @@ public class InstrumentManager : MonoBehaviour
     [Header("Left arm configs")] [SerializeField] [Tooltip("Input action for instrument in left hand")]
     private InputAction inputLeft;
 
+    // [SerializeField] private GunSlot leftPrimary;
+    
     [SerializeField] private Transform parentLeftPrimary;
     [SerializeField] [ReadOnly] private Gun gunLeftPrimary;
     [SerializeField] private Transform parentLeftSecondary;
@@ -22,16 +31,35 @@ public class InstrumentManager : MonoBehaviour
     [SerializeField] private Transform parentRightSecondary;
     [SerializeField] [ReadOnly] private Gun gunRightSecondary;
 
-    private void SetupGun(Gun gun)
+    private void SetupGun(Gun gunNew, Transform parentSlot)
     {
-        gunLeftPrimary = gun;
-        gun.Spawn(parentLeftPrimary, this);
+        if (parentSlot == parentLeftPrimary) gunLeftPrimary = gunNew;
+        if (parentSlot == parentLeftSecondary) gunLeftSecondary = gunNew;
+        if (parentSlot == parentRightPrimary) gunRightPrimary = gunNew;
+        if (parentSlot == parentRightSecondary) gunRightSecondary = gunNew;
+        
+        // switch (parentSlot)
+        // {
+        //     case var _ when ReferenceEquals(parentSlot, parentLeftPrimary):
+        //         gunLeftPrimary = gunNew;
+        //         break;
+        //     case var _ when ReferenceEquals(parentSlot, parentLeftSecondary):
+        //         gunLeftSecondary = gunNew;
+        //         break;
+        //     case var _ when ReferenceEquals(parentSlot, parentRightPrimary):
+        //         gunRightPrimary = gunNew;
+        //         break;
+        //     case var _ when ReferenceEquals(parentSlot, parentRightSecondary):
+        //         gunRightSecondary = gunNew;
+        //         break;
+        // }
+        gunNew.Spawn(parentSlot, this);
     }
 
     public bool PickUpGun(Gun gun)
     {
         // ThrowActiveGun();
-        SetupGun(gun);
+        SetupGun(gun, parentRightSecondary);
         return true;
     }
 
