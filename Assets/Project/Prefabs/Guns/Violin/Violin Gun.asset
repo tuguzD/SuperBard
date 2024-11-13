@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d833cea618074f7ea66b6aac14c95a36, type: 3}
+  m_Name: Violin Gun
+  m_EditorClassIdentifier: 
+  type: 1
+  modelPrefab: {fileID: 4832108298390368689, guid: c69f1ed6ac2f88b44b80780cc072aecd,
+    type: 3}
+  pickupPrefab: {fileID: 2973505853926566105, guid: 8573f45ce00ac48439549ed813b0e77a,
+    type: 3}
+  spawnPoint: {x: 0.16, y: -0.09, z: 0.04}
+  spawnRotation: {x: -64, y: 61, z: 80}
+  spawnScale: {x: 1, y: 1, z: 1}
+  shootConfig: {fileID: 11400000, guid: 5c43614772e96784ab4c0232c7d55535, type: 2}
+  trailConfig: {fileID: 11400000, guid: 5153c66b572e3424bbb669dafc72e54a, type: 2}

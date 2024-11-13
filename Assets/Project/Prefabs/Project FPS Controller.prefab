@@ -1798,13 +1798,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6588271135002442922}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.13052616, z: 0, w: 0.9914449}
   m_LocalPosition: {x: 0.075, y: 0.08, z: 0.39}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7036996649611214093}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 15, z: 0}
 --- !u!1 &6657285584377636464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,14 +2244,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7755993783907645505}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000029802319, y: -0.00000003771856, z: -0.000000017986165,
-    w: 1}
+  m_LocalRotation: {x: 0, y: -0.13052624, z: 0, w: 0.9914449}
   m_LocalPosition: {x: -0.075, y: 0.08, z: 0.39000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7795550007305871983}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -15, z: 0}
 --- !u!1 &7867674665205988652
 GameObject:
   m_ObjectHideFlags: 0
@@ -2891,6 +2890,8 @@ MonoBehaviour:
   leftSecondary:
     parent: {fileID: 5878732502951040069}
     gun: {fileID: 0}
+  laneLeft: {fileID: 0}
+  laneManagersLeft: []
   inputRight:
     m_Name: Input Right
     m_Type: 0
@@ -2914,6 +2915,8 @@ MonoBehaviour:
   rightSecondary:
     parent: {fileID: 6492475176497295332}
     gun: {fileID: 0}
+  laneRight: {fileID: 0}
+  laneManagersRight: []
 --- !u!4 &7745622032396041259 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4459864851310106429, guid: 6bacecc4f3df9584198879c73a6b6c36,

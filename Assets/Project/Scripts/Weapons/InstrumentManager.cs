@@ -60,14 +60,14 @@ public class InstrumentManager : MonoBehaviour
             if (gun.type == left.instrument)
             {
                 // ThrowActiveGun();
-                SetupGun(gun, ref leftPrimary);
+                SetupGun(gun, ref leftPrimary.gun == null ? ref leftPrimary : ref leftSecondary);
                 return true;
             }
         foreach (var right in laneManagersRight)
             if (gun.type == right.instrument)
             {
                 // ThrowActiveGun();
-                SetupGun(gun, ref rightPrimary);
+                SetupGun(gun, ref rightPrimary.gun == null ? ref rightPrimary : ref rightSecondary);
                 return true;
             }
 

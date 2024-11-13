@@ -4,7 +4,7 @@ using UnityEngine;
 public class GunPickUp : MonoBehaviour
 {
     public Gun gun;
-    public Vector3 spinDirection = Vector3.up;
+    public Vector3 spinDirection = Vector3.up * 0.25f;
 
     private void Update()
     {
