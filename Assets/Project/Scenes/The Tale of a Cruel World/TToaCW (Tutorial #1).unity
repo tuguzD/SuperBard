@@ -124,12 +124,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &9765526 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3790460297928576762, guid: 80764696420c47848b3c425a028d4378,
-    type: 3}
-  m_PrefabInstance: {fileID: 1775058282}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &12614054
 GameObject:
   m_ObjectHideFlags: 0
@@ -8268,12 +8262,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &1693789928 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7745622031606388408, guid: 80764696420c47848b3c425a028d4378,
-    type: 3}
-  m_PrefabInstance: {fileID: 1775058282}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1704897442
 GameObject:
   m_ObjectHideFlags: 0
@@ -8645,15 +8633,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7745622031606388408, guid: 80764696420c47848b3c425a028d4378,
-        type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1775058293}
-    - targetCorrespondingSourceObject: {fileID: 7745622031606388408, guid: 80764696420c47848b3c425a028d4378,
-        type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 1775058294}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80764696420c47848b3c425a028d4378, type: 3}
 --- !u!4 &1775058283 stripped
 Transform:
@@ -8667,54 +8647,6 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 1775058282}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1775058293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693789928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cbba0742b784e11b1a0f3f00af6b42e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gunType: 0
-  gunParent: {fileID: 9765526}
-  guns:
-  - {fileID: 11400000, guid: 805fa62603344c744b79054804fc2631, type: 2}
-  activeGun: {fileID: 0}
---- !u!114 &1775058294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693789928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64c7c6df20f34ca1a041348fc7e2e5d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  input:
-    m_Name: Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 5d0fc43e-43ce-4200-b024-460c38bfb726
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: fb7d7c39-ca56-49f5-a4ed-dd161df02eb6
-      m_Path: <Mouse>/leftButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Input
-      m_Flags: 0
-    m_Flags: 0
-  playerCamera: {fileID: 1775058285}
-  gunSelector: {fileID: 1775058293}
 --- !u!1 &1775171857
 GameObject:
   m_ObjectHideFlags: 0
