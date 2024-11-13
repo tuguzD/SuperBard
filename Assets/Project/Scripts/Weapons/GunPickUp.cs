@@ -13,9 +13,10 @@ public class GunPickUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.TryGetComponent(out InstrumentManager gunSelector)) return;
+        if (!other.TryGetComponent(
+                out InstrumentManager manager)) return;
 
-        gunSelector.PickUpGun(gun);
-        Destroy(gameObject);
+        if (manager.PickUpGun(gun))
+            Destroy(gameObject);
     }
 }

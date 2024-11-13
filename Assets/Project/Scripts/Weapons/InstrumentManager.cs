@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using NaughtyAttributes;
 
 public class InstrumentManager : MonoBehaviour
 {
@@ -9,28 +10,29 @@ public class InstrumentManager : MonoBehaviour
     private InputAction inputLeft;
 
     [SerializeField] private Transform parentLeftPrimary;
-    private Gun _gunLeftPrimary;
+    [SerializeField] [ReadOnly] private Gun gunLeftPrimary;
     [SerializeField] private Transform parentLeftSecondary;
-    private Gun _gunLeftSecondary;
+    [SerializeField] [ReadOnly] private Gun gunLeftSecondary;
 
     [Header("Right arm configs")] [SerializeField] [Tooltip("Input action for instrument in right hand")]
     private InputAction inputRight;
 
     [SerializeField] private Transform parentRightPrimary;
-    private Gun _gunRightPrimary;
+    [SerializeField] [ReadOnly] private Gun gunRightPrimary;
     [SerializeField] private Transform parentRightSecondary;
-    private Gun _gunRightSecondary;
+    [SerializeField] [ReadOnly] private Gun gunRightSecondary;
 
     private void SetupGun(Gun gun)
     {
-        _gunLeftPrimary = gun;
+        gunLeftPrimary = gun;
         gun.Spawn(parentLeftPrimary, this);
     }
 
-    public void PickUpGun(Gun gun)
+    public bool PickUpGun(Gun gun)
     {
         // ThrowActiveGun();
         SetupGun(gun);
+        return true;
     }
 
     // public void ThrowActiveGun()
@@ -56,14 +58,13 @@ public class InstrumentManager : MonoBehaviour
         var direction = playerCamera.transform.forward;
         if (inputLeft.triggered)
         {
-            if (_gunLeftPrimary) _gunLeftPrimary.Shoot(direction);
-            if (_gunLeftSecondary) _gunLeftSecondary.Shoot(direction);
+            if (gunLeftPrimary) gunLeftPrimary.Shoot(direction);
+            if (gunLeftSecondary) gunLeftSecondary.Shoot(direction);
         }
-
         if (inputRight.triggered)
         {
-            if (_gunRightPrimary) _gunRightPrimary.Shoot(direction);
-            if (_gunRightSecondary) _gunRightSecondary.Shoot(direction);
+            if (gunRightPrimary) gunRightPrimary.Shoot(direction);
+            if (gunRightSecondary) gunRightSecondary.Shoot(direction);
         }
     }
 }
