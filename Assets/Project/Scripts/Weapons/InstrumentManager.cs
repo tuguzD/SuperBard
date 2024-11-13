@@ -23,7 +23,7 @@ public class InstrumentManager : MonoBehaviour
     [SerializeField] private GunSlot rightPrimary;
     [SerializeField] private GunSlot rightSecondary;
 
-    private void SetupGun(Gun gun, GunSlot parentSlot)
+    private void SetupGun(Gun gun, ref GunSlot parentSlot)
     {
         parentSlot.gun = gun;
         gun.Spawn(parentSlot.parent, this);
@@ -32,7 +32,7 @@ public class InstrumentManager : MonoBehaviour
     public bool PickUpGun(Gun gun)
     {
         // ThrowActiveGun();
-        SetupGun(gun, leftPrimary);
+        SetupGun(gun, ref leftPrimary);
         return true;
     }
 
