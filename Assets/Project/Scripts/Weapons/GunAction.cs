@@ -23,7 +23,7 @@ public class GunAction : MonoBehaviour
 
     private void Update()
     {
-        if (input.triggered && gunSelector.activeGun != null)
+        if (input.triggered && gunSelector.activeGun)
             gunSelector.activeGun.Shoot(playerCamera.transform.forward);
     }
 }

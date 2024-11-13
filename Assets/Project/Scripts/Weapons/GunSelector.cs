@@ -1,25 +1,26 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GunSelector : MonoBehaviour
 {
-    [SerializeField] private GunType gunType;
     [SerializeField] private Transform gunParent;
-    [SerializeField] private List<Gun> guns;
 
-    [Space] [Header("Runtime Filled")] public Gun activeGun;
+    [Space] public Gun activeGun;
 
-    private void Start()
+    private void SetupGun(Gun gun)
     {
-        var gun = guns.Find(gun => gun.type == gunType);
-
-        if (gun == null)
-        {
-            Debug.LogError($"No GunScriptableObject found for GunType: {gun}");
-            return;
-        }
-
         activeGun = gun;
         gun.Spawn(gunParent, this);
+    }
+
+    public void ThrowActiveGun()
+    {
+        // activeGun.Despawn();
+        // Destroy(activeGun);
+    }
+
+    public void PickUpGun(Gun gun)
+    {
+        ThrowActiveGun();
+        SetupGun(gun);
     }
 }
