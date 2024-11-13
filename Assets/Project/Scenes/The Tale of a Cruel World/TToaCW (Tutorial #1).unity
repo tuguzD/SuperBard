@@ -1055,6 +1055,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
         type: 3}
+      propertyPath: instrument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2999702937491641618, guid: 6c006112d3dd3c04884a57cab15f16bc,
+        type: 3}
       propertyPath: notePrefab
       value: 
       objectReference: {fileID: 3412058426916638766, guid: a392fc15abaa3484da34a655cf20d846,
@@ -1243,7 +1248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileLocation: (2-Sec - Tubular Bell) The Tale of a Cruel World.mid
-  instrumentName: Tubular Bell
+  instrument: 2
   notePrefab: {fileID: 4281696700594583171, guid: 9a70490090a73d948ac08d7ca207df03,
     type: 3}
   priorityModifier: 1.625

@@ -28,7 +28,7 @@ public class RtS_Pri_DrumSet_LaneManager : LaneManager
         priorityModifier *= 0.625f;
 
         Debug.LogWarning(
-            $"Priority of {instrumentName} removed, but stored as {_storedPriority}");
+            $"Priority of {instrument} removed, but stored as {_storedPriority}");
     }
 
     private void RevertBasicPriority()
@@ -37,6 +37,6 @@ public class RtS_Pri_DrumSet_LaneManager : LaneManager
         _storedPriority = 0f;
 
         Debug.LogWarning(
-            $"Priority of {instrumentName} added back, cleared in class to be {_storedPriority}");
+            $"Priority of {instrument} added back, cleared in class to be {_storedPriority}");
     }
 }

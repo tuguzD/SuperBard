@@ -12,7 +12,7 @@ public class LaneManager : MonoBehaviour
     private MidiFile _midiFile;
 
     [Tooltip("Name of the instrument (weapon) played during this lane")]
-    public string instrumentName;
+    public GunType instrument;
 
     [Header("User interaction")]
     [Tooltip("Note object that will be spawned in this lane")]
@@ -117,7 +117,7 @@ public class LaneManager : MonoBehaviour
                 if (_notes[_inputIndex].gameObject)
                     Destroy(_notes[_inputIndex].gameObject);
 
-                print($"Hit on {_inputIndex} note of {instrumentName}");
+                print($"Hit on {_inputIndex} note of {instrument}");
                 _inputIndex++;
             }
             else
@@ -130,7 +130,7 @@ public class LaneManager : MonoBehaviour
         if (GameManager.Instance.errorMargin + timeStamp <= audioSourceTime)
         {
             ScoreManager.Miss(priorityModifier);
-            print($"Missed {_inputIndex} note of {instrumentName}");
+            print($"Missed {_inputIndex} note of {instrument}");
             _inputIndex++;
         }
     }
