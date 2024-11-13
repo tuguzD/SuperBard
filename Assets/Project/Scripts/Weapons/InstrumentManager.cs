@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using NaughtyAttributes;
@@ -18,10 +20,33 @@ public class InstrumentManager : MonoBehaviour
     [SerializeField] private GunSlot leftPrimary;
     [SerializeField] private GunSlot leftSecondary;
 
+    [SerializeField] private GameObject laneLeft;
+    [SerializeField] [ReadOnly] private List<LaneManager> laneManagersLeft;
+
     [Header("Right arm configs")] [SerializeField] [Tooltip("Input action for instrument in right hand")]
     private InputAction inputRight;
     [SerializeField] private GunSlot rightPrimary;
     [SerializeField] private GunSlot rightSecondary;
+
+    [SerializeField] private GameObject laneRight;
+    [SerializeField] [ReadOnly] private List<LaneManager> laneManagersRight;
+
+    private void Start()
+    {
+        laneManagersLeft = laneLeft.GetComponents<LaneManager>().ToList();
+        laneManagersLeft.Sort(
+            (x, y) => x.priorityModifier.CompareTo(y.priorityModifier)
+        );
+        // foreach (var left in laneManagersLeft)
+        //     Debug.LogWarning(left.instrument);
+        
+        laneManagersRight = laneRight.GetComponents<LaneManager>().ToList();
+        laneManagersRight.Sort(
+            (x, y) => x.priorityModifier.CompareTo(y.priorityModifier)
+        );
+        // foreach (var right in laneManagersRight)
+        //     Debug.LogWarning(right.instrument);
+    }
 
     private void SetupGun(Gun gun, ref GunSlot parentSlot)
     {
@@ -31,9 +56,22 @@ public class InstrumentManager : MonoBehaviour
 
     public bool PickUpGun(Gun gun)
     {
-        // ThrowActiveGun();
-        SetupGun(gun, ref leftPrimary);
-        return true;
+        foreach (var left in laneManagersLeft)
+            if (gun.type == left.instrument)
+            {
+                // ThrowActiveGun();
+                SetupGun(gun, ref leftPrimary);
+                return true;
+            }
+        foreach (var right in laneManagersRight)
+            if (gun.type == right.instrument)
+            {
+                // ThrowActiveGun();
+                SetupGun(gun, ref rightPrimary);
+                return true;
+            }
+
+        return false;
     }
 
     // public void ThrowActiveGun()
