@@ -8,6 +8,7 @@ public class Gun : ScriptableObject
     public GunType type;
     // public string gunName;
     public GameObject modelPrefab;
+    public GameObject pickupPrefab;
 
     public Vector3 spawnPoint;
     public Vector3 spawnRotation;

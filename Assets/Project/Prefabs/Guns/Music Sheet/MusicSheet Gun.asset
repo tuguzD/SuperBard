@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: MusicSheet Gun
   m_EditorClassIdentifier: 
   type: 0
-  gunName: Music sheet
   modelPrefab: {fileID: 7500091553241923855, guid: 76ced622f95c2274299d2b7f6de510af,
+    type: 3}
+  pickupPrefab: {fileID: 2973505853926566105, guid: 8573f45ce00ac48439549ed813b0e77a,
     type: 3}
   spawnPoint: {x: 0, y: 0, z: 0}
   spawnRotation: {x: 0, y: -18, z: 180}
