@@ -6,8 +6,8 @@ public enum GunType
 
     DrumSet,
     Harpsichord,
-    DistGuitar,
+    DistortionGuitar,
     Flute,
-    HornF,
+    HornInF,
     Oboe,
 }
