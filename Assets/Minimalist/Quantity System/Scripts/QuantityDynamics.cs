@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Minimalist.Quantity
@@ -13,6 +11,10 @@ namespace Minimalist.Quantity
             get
             {
                 return _type;
+            }
+            set
+            {
+                _type = value;
             }
         }
         public float DeltaPercentage

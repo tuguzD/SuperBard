@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 #if UNITY_EDITOR
@@ -182,7 +181,7 @@ namespace Minimalist.Quantity
 
         private void Start()
         {
-            if (Application.isPlaying && PassiveDynamics.Type != QuantityDynamicsType.None)
+            if (Application.isPlaying)
             {
                 StartPassiveDynamics();
             }
