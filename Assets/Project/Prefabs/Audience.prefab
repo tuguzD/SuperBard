@@ -301,7 +301,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2977497976040282506}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.19675507, y: -0.021403238, z: -0.00429622, w: 0.98020965}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
@@ -458,6 +458,8 @@ MonoBehaviour:
   cheering: {fileID: 8300000, guid: 654c2317e8047e24cb657e249524b7cb, type: 3}
   worried: {fileID: 8300000, guid: 6ee59f8ab857b5f4b967f7bb3d718f0a, type: 3}
   angry: {fileID: 8300000, guid: d279cccd701e95642bc58421af77d375, type: 3}
+  happy: {fileID: 8300000, guid: 1d1a17aa8aea9be4ba2744a18d4a3773, type: 3}
+  upset: {fileID: 8300000, guid: 2319fb8bc9406ee44bd27230522cb6d2, type: 3}
 --- !u!82 &8986605276752859388
 AudioSource:
   m_ObjectHideFlags: 0
@@ -470,7 +472,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
