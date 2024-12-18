@@ -1,4 +1,6 @@
+using System;
 using Minimalist.Quantity;
+using Minimalist.Utility.SampleScene;
 using UnityEngine;
 
 public class Audience : MonoBehaviour
@@ -6,6 +8,12 @@ public class Audience : MonoBehaviour
     private void ListenToMusic()
     {
         _happiness.PassiveDynamics.Type = QuantityDynamicsType.Depletion;
+    }
+
+    private void FixedUpdate()
+    {
+        gameObject.GetComponent<Renderer>().material.color = 
+            FindObjectOfType<LabelBhv>()._fontColorGradient.Evaluate(_happiness.FillAmount);
     }
 
     private void OnCollisionEnter(Collision other)

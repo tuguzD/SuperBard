@@ -11,7 +11,7 @@ namespace Minimalist.Utility.SampleScene
     public class LabelBhv : QuantitySubscriber
     {
         // Private serialized fields
-        [SerializeField] private DiscretizedGradient _fontColorGradient;
+        [SerializeField] public DiscretizedGradient _fontColorGradient;
         [SerializeField] private string _amountFormat = "0";
         [SerializeField] private bool _displayQuantityName = true;
         [SerializeField] private bool _displayQuantityAmount = true;
