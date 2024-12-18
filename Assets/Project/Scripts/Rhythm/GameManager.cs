@@ -7,8 +7,10 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public AudioSource audioSource;
     
-    [Tooltip("Function to be called after audio source ends")]
-    public Action Callback;
+    [Tooltip("Functions to be called after audio source ends")]
+    public Action EndAction;
+    [Tooltip("Functions to be called after audio source starts")]
+    public Action StartAction;
     
     [Header("Audio source settings")]
     [Tooltip("Delay an audio, or play it after the provided time (in seconds)")]
@@ -36,7 +38,9 @@ public class GameManager : MonoBehaviour
     private void StartSong()
     {
         audioSource.Play();
-        StartCoroutine(WaitAudio(Callback));
+
+        StartAction.Invoke();
+        StartCoroutine(WaitAudio(EndAction));
     }
     
     private IEnumerator WaitAudio(Action callback)

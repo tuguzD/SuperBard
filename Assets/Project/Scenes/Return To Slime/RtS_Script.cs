@@ -21,6 +21,6 @@ public class RtS_Script : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Instance.Callback = NextLevel;
+        GameManager.Instance.EndAction += NextLevel;
     }
 }
