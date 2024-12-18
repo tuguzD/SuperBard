@@ -24,6 +24,8 @@ public class ScoreManager : MonoBehaviour
     [Tooltip("Source of sound effect on skipping the note completely, canceling current combo")]
     public AudioSource missingSound;
 
+    public static float ComboPower => _comboScore / ScoreEnlarger;
+    
     private void Start()
     {
         _comboScore = 0;
@@ -32,9 +34,9 @@ public class ScoreManager : MonoBehaviour
 
     public static void Hit(float priority)
     {
-        if (!_comboScore.Equals(0.0f) && (int)_comboScore / ScoreEnlarger != 0)
+        if (!_comboScore.Equals(0.0f) && (int)ComboPower != 0)
         {
-            _totalScore += (_comboScore / ScoreEnlarger) * priority;
+            _totalScore += ComboPower * priority;
             _totalScore = (float)Math.Floor(_totalScore);
         }
         _totalScore += 1 * priority;

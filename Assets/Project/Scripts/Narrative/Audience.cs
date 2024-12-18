@@ -16,7 +16,9 @@ public class Audience : MonoBehaviour
     {
         if (!other.gameObject.TryGetComponent(typeof(Bullet), out var bullet)) return;
 
-        _happiness.Amount += 0.25f;
+        var noCombo = Mathf.Approximately(ScoreManager.ComboPower, Mathf.Epsilon);
+        if (noCombo) _happiness.Amount -= 0.05f;
+        else _happiness.Amount += 0.15f * (1 + ScoreManager.ComboPower);
     }
 
     [Header("Audio clips to play at the end")]
