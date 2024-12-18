@@ -1,19 +1,15 @@
-using System;
 using Minimalist.Quantity;
+using Minimalist.Utility;
 using Minimalist.Utility.SampleScene;
 using UnityEngine;
 
 public class Audience : MonoBehaviour
 {
+    private QuantityBhv _happiness;
+
     private void ListenToMusic()
     {
         _happiness.PassiveDynamics.Type = QuantityDynamicsType.Depletion;
-    }
-
-    private void FixedUpdate()
-    {
-        gameObject.GetComponent<Renderer>().material.color = 
-            FindObjectOfType<LabelBhv>()._fontColorGradient.Evaluate(_happiness.FillAmount);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -42,8 +38,6 @@ public class Audience : MonoBehaviour
         source.Play();
     }
 
-    private QuantityBhv _happiness;
-
     private void Start()
     {
         _happiness = transform.parent.GetComponentInChildren<QuantityBhv>();
@@ -51,5 +45,16 @@ public class Audience : MonoBehaviour
         var gameManager = FindObjectOfType<GameManager>();
         gameManager.StartAction += ListenToMusic;
         gameManager.EndAction += PlayAudio;
+
+        _gradient = FindObjectOfType<LabelBhv>()._fontColorGradient;
+        _material = gameObject.GetComponent<Renderer>().material;
+    }
+
+    private DiscretizedGradient _gradient;
+    private Material _material;
+    
+    private void FixedUpdate()
+    {
+        _material.color = _gradient.Evaluate(_happiness.FillAmount);
     }
 }
