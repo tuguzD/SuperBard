@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Project/Scenes/The Tale of a Cruel World/TToaCW (Tutorial #1).unity
     guid: 20979be01033cc642a0f5327264d79e4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Project/Scenes/Return To Slime/RtS (Tutorial #2).unity
     guid: 078b024bf8e522248a7a23df6ac2e5fd
   m_configObjects: {}
